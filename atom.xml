@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>hojun</title>
+  <title>learner&#39;blog</title>
   
   
-  <link href="/child/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yangjiafu2002.github.io/child/"/>
-  <updated>2024-03-25T09:38:12.475Z</updated>
-  <id>http://yangjiafu2002.github.io/child/</id>
+  <link href="/"/>
+  <updated>2024-03-23T07:26:20.368Z</updated>
+  <id>/</id>
   
   <author>
-    <name>hojun</name>
+    <name>learner</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="/2024/03/25/LCA/"/>
+    <id>/2024/03/25/LCA/</id>
+    <published>2024-03-25T09:54:14.393Z</published>
+    <updated>2024-03-23T07:26:20.368Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;LCA&quot;&gt;&lt;a href=&quot;#LCA&quot; class=&quot;headerlink&quot; title=&quot;LCA&quot;&gt;&lt;/a&gt;LCA&lt;/h4&gt;&lt;h5 id=&quot;tarjan&quot;&gt;&lt;a href=&quot;#tarjan&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://yangjiafu2002.github.io/child/2024/03/25/hello-world/"/>
-    <id>http://yangjiafu2002.github.io/child/2024/03/25/hello-world/</id>
-    <published>2024-03-25T09:38:12.475Z</published>
-    <updated>2024-03-25T09:38:12.475Z</updated>
+    <link href="/2024/03/25/hello-world/"/>
+    <id>/2024/03/25/hello-world/</id>
+    <published>2024-03-25T09:54:14.388Z</published>
+    <updated>2024-03-21T06:38:41.563Z</updated>
     
     <summary type="html">
     
@@ -40,8 +62,8 @@
   
   <entry>
     <title>Hexo-Theme-Sakura</title>
-    <link href="http://yangjiafu2002.github.io/child/2018/12/12/Hexo-Theme-Sakura/"/>
-    <id>http://yangjiafu2002.github.io/child/2018/12/12/Hexo-Theme-Sakura/</id>
+    <link href="/2018/12/12/Hexo-Theme-Sakura/"/>
+    <id>/2018/12/12/Hexo-Theme-Sakura/</id>
     <published>2018-12-12T14:16:01.000Z</published>
     <updated>2021-11-09T14:13:18.000Z</updated>
     
@@ -51,12 +73,12 @@
     
     </summary>
     
-      <category term="技术" scheme="http://yangjiafu2002.github.io/child/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="web" scheme="http://yangjiafu2002.github.io/child/tags/web/"/>
+      <category term="web" scheme="/tags/web/"/>
     
-      <category term="悦读" scheme="http://yangjiafu2002.github.io/child/tags/%E6%82%A6%E8%AF%BB/"/>
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
