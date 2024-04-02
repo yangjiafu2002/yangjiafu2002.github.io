@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2024-03-27T12:46:05.563Z</updated>
+  <updated>2024-04-02T13:07:51.778Z</updated>
   <id>/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="/2024/03/25/LCA/"/>
     <id>/2024/03/25/LCA/</id>
     <published>2024-03-25T09:54:14.393Z</published>
-    <updated>2024-03-27T12:46:05.563Z</updated>
+    <updated>2024-04-02T13:07:51.778Z</updated>
     
     <summary type="html">
     
@@ -31,6 +31,8 @@
     
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
+    
+      <category term="LCA ABC" scheme="/tags/LCA-ABC/"/>
     
   </entry>
   
