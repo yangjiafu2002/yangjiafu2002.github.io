@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hexo Sakura使用教程 | learner&#39;blog</title>
+  <title itemprop="name">Tag: codeforces | learner&#39;blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -362,215 +362,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/articleCover/photo1.jpg);" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo1.jpg">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      Hexo Sakura使用教程</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="">learner__</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2024-3-25<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="codeforces.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">codeforces</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h4 id="LCA"><a href="#LCA" class="headerlink" title="LCA"></a>LCA</h4><h5 id="tarjan"><a href="#tarjan" class="headerlink" title="tarjan"></a><strong>tarjan</strong></h5><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const ll N = 5e5 + 7;
-vector&lt;ll&gt; G[N], Q[N];
-ll ans[N][3], fa[N], n, m, s;
-ll vis[N];
-
-void init()
-{
-    for (ll i = 0; i &lt; N; i++)
-        fa[i] = i;
-}
-
-int find(int x)
-{
-    return x == fa[x] ? x : fa[x] = find(fa[x]);
-}
-
-void tarjan(int u) {
-    vis[u] = 1;//标记该点已被访问
-    for (auto i : Q[u]) {
-        if (vis[ans[i][1]] &amp;&amp; vis[ans[i][0]])
-            ans[i][2] = find(ans[i][0] == u ? ans[i][1] : ans[i][0]);
-    }
-    for (auto v : G[u]) {//父亲是靠近根节点的节点
-        if (vis[v])
-            continue;
-        tarjan(v);
-        fa[v] = u;//v的子节点已全部访问完
-    }
-}
-
-signed main() {
-    init();
-    cin &gt;&gt; n &gt;&gt; m &gt;&gt; s;//顶点数、询问次数、根节点
-    for (int i = 1, x, y; i &lt; n; i++)
-        cin &gt;&gt; x &gt;&gt; y, G[x].push_back(y), G[y].push_back(x);//存图
-    for (int i = 1; i &lt;= m; i++)//存询问
-    {
-        cin &gt;&gt; ans[i][0] &gt;&gt; ans[i][1];
-        Q[ans[i][0]].push_back(i);
-        Q[ans[i][1]].push_back(i);
-    }
-    tarjan(s);
-    for (int i = 1; i &lt;= m; i++)
-        cout &lt;&lt; ans[i][2] &lt;&lt; &#39;\n&#39;;
-    return 0;
-}
-</code></pre>
-<h5 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h5><p>两个节点到达同一节点后，不论怎么向上走，达到的显然还是同一节点 </p>
-<pre><code class="cpp">int fa[21][N], dep[N];
-void dfs(int x, int pre, int d)//找到每个节点父亲与深度
-{
-    fa[0][x] = pre;
-    dep[x] = d;
-    for(auto &amp;to : g[x]) if(to != pre) dfs(to, x, d + 1);
-}
-int LCA(int u, int v)
-{
-    if(dep[u] &gt; dep[v]) swap(u, v);
-    int temp = dep[v] - dep[u];//将u v移到同一深度
-    for(int i = 0; ((1 &lt;&lt; i) &lt;= temp); i++) if((1 &lt;&lt; i) &amp; temp) v = fa[i][v];
-    if(u == v) return u;
-    for(int i = log2(n); i &gt;= 0; i--)//两个节点一起往上走
-    {                                 //最多合法的跳跃是 2 ^ log2(n)
-        if(fa[i][u] != fa[i][v])//如果相同则代表跳的太多了
-        {
-            u = fa[i][u];
-            v = fa[i][v];
-        }
-    }
-    return fa[0][u];
-}
-void init_LCA()// 注意根节点是什么，dfs 默认是根节点是 1 
-{
-    for(int j = 0; j &lt;= 20; j++) for( int i = 1; i &lt;= n; i++) fa[j][i] = 0;
-    dfs(root, -1, 0);
-    for(int j = 0; (1 &lt;&lt; j) &lt;= n; j++)//预处理出每个节点往上走2^j所到的节点，超过根节点记为-1
-    {
-        for(int i = 1; i &lt;= n; i++) 
-        {
-            if(fa[j][i] &lt; 0) fa[j + 1][i] = -1;
-            else fa[j + 1][i] = fa[j][fa[j][i]];
-        }
-    }
-}
-</code></pre>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <!-- <div class="reward-open">赏 -->
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/WeChanQR.jpg"></li>
-              </ul>
-            </div>
-          <!-- </div> -->
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-        
-      </section>
       
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-    <div id="vcomments"></div>
-    <script>
-    new Valine({
-                el: '#vcomments',
-                appId: '5uFVcaXuhCKCxD1aoBuPGLUx-gzGzoHsz',
-                appKey: '8YL2qqdhRPCOessUQWx18Z7J',
-                placeholder: "昵称处输入QQ账号可获取自己头像~",
-                avatar:'',//小怪物头像,
-                visitor: true, // 阅读量统计
-                enableQQ: true
-            })
-    </script>
-
-
-
-
-<!-- 来必力City版安装代码 -->
-<!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81OTcwNS8zNjE2Nw==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div> -->
-<!-- City版安装代码已完成 -->
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg" itemprop="image" alt="learner__" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">learner__</a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2024/04/04/2/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>不积跬步，无以至千里！</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="/images/articleCover/photo2.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2024/04/04/2/">
+    子数组和为0计数</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2024-4-4</div>
+    <p>
+    求解一个数组中，和为0的子数组的数量</p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2024/04/04/2/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

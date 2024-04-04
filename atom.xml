@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2024-04-02T13:07:51.778Z</updated>
+  <updated>2024-04-04T13:59:18.989Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo Sakura使用教程</title>
-    <link href="/2024/03/25/LCA/"/>
-    <id>/2024/03/25/LCA/</id>
+    <title>子数组和为0计数</title>
+    <link href="/2024/04/04/2/"/>
+    <id>/2024/04/04/2/</id>
+    <published>2024-04-04T13:45:51.399Z</published>
+    <updated>2024-04-04T13:59:18.989Z</updated>
+    
+    <summary type="html">
+    
+      求解一个数组中，和为0的子数组的数量
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="codeforces" scheme="/tags/codeforces/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LCA算法板子</title>
+    <link href="/2024/03/25/1/"/>
+    <id>/2024/03/25/1/</id>
     <published>2024-03-25T09:54:14.393Z</published>
-    <updated>2024-04-02T13:07:51.778Z</updated>
+    <updated>2024-04-04T13:59:06.992Z</updated>
     
     <summary type="html">
     
@@ -32,7 +52,7 @@
       <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="LCA ABC" scheme="/tags/LCA-ABC/"/>
+      <category term="板子" scheme="/tags/%E6%9D%BF%E5%AD%90/"/>
     
   </entry>
   
