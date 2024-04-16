@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2024-04-04T13:59:18.989Z</updated>
+  <updated>2024-04-16T10:46:40.678Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写一个函数在 main 函数执⾏前先运⾏</title>
+    <link href="/2024/04/16/3/"/>
+    <id>/2024/04/16/3/</id>
+    <published>2024-04-16T10:37:55.467Z</published>
+    <updated>2024-04-16T10:46:40.678Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>子数组和为0计数</title>

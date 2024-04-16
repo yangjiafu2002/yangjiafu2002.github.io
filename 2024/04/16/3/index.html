@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">子数组和为0计数 | learner&#39;blog</title>
+  <title itemprop="name">写一个函数在 main 函数执⾏前先运⾏ | learner&#39;blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -368,11 +368,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/articleCover/photo2.jpg);" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo2.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/articleCover/photo3.jpg);" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo3.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      子数组和为0计数</h1>
+      写一个函数在 main 函数执⾏前先运⾏</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -384,7 +384,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2024-4-4<span class="bull">
+        2024-4-16<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -398,43 +398,36 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="B-Eugene-and-an-array（一个数组中，求和为0的子数组的数量）"><a href="#B-Eugene-and-an-array（一个数组中，求和为0的子数组的数量）" class="headerlink" title="B. Eugene and an array（一个数组中，求和为0的子数组的数量）"></a>B. Eugene and an array（一个数组中，求和为0的子数组的数量）</h1><p><a href="https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B" target="_blank" rel="noopener">https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B</a> </p>
-<p>题意：定义一个数组为 good array 如果该数组的所有子数组和都不为 0</p>
-<p>求一个数组中有多少个子数组是 good array。</p>
-<p>思路：运用前缀和查找出和为 0 的子数组，若前缀 pre[i] 之前存在一个相同的 pre[j] (j &lt; i)， 则子数组 [j, i] 的和为 0, 若 pre[i] == 0， 则其本身也是一个和为 0 的子数组。</p>
-<pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
-#define ll long long
-#define ull unsigned long long
-#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
-using namespace std;
+          <pre><code class="cpp">//第⼀种：gcc扩展，标记这个函数应当在main函数之前执⾏。同样有⼀个__attribute((destructor))，标记函
+//数应当在程序结束之前（main结束之后，或者调⽤了exit后）执⾏;
+__attribute((constructor))void before() {
+    printf(&quot;before main 1\n&quot;);
+}
 
-const ll N = 2e5 + 5;
+//第⼆种：全局 static 变量的初始化在程序初始阶段，先于 main 函数的执⾏
+int test1(){
+    cout &lt;&lt; &quot;before main 2&quot; &lt;&lt; endl;
+    return 1;
+}
+static int i = test1();
 
-ll n, pre[N];
-map&lt;ll, ll&gt; mp;//记录前缀和相同的最右边的位置
+// 第三种：知乎⼤⽜ Milo Yip 的回答利⽤ lambda 表达式
+int a = []() {
+    cout &lt;&lt; &quot;before main 3&quot; &lt;&lt; endl;
+    return 0;
+}();
 
-void solve()
-{
-    cin &gt;&gt; n;
-    ll ans =n * (n + 1) / 2;//答案最大值为 n * (n + 1) / 2, 后续处理删除不符合条件的子数组
-    ll l = 0;//用l标记左边已经处理到的位置，l前面的无需处理，否则会造成重复子数组的删除
-    for (ll i = 1, x; i &lt;= n; i++)
-    {
-        cin &gt;&gt; x;
-        pre[i] = pre[i - 1] + x;//预处理前缀和
-    }
-    for (ll i = 1; i &lt;= n; i++)
-    {
-        if (mp[pre[i]] + 1 &gt; l &amp;&amp; (mp[pre[i]] || !pre[i]))//要删除[mp[pre[i]] + 1, i]的子数组，若mp[pre[i]] + 1 &gt; l则当前可删除为删除过的子数组(删除区间[l, mp[pre[i]] + 1 &gt; l]中的部分元素)
-        {
-            ans -= (mp[pre[i]] - l + 1) * (n - i + 1);//删除不符合条件并且没有删过的子数组
-            l = mp[pre[i]] + 1;//将l更新至最右边， 端点在左边不符合条件的子数组均已删除
-        }
-        mp[pre[i]] = i;
-    }
-    cout &lt;&lt; ans &lt;&lt; &#39;\n&#39;;
+int main(int argc, char** argv) {
+    cout &lt;&lt; &quot;main function&quot; &lt;&lt;endl;
+    return 0;
 }
 </code></pre>
+<p><strong>输出</strong></p>
+<pre><code>before main 2
+before main 3
+before main 1
+main function
+</code></pre><p>其中 2 和 3 取决于调用位置</p>
 
         </div>
         <!-- .entry-content -->
@@ -463,36 +456,19 @@ void solve()
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2024/04/16/3/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo3.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo3.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                写一个函数在 main 函数执⾏前先运⾏</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2024/03/25/1/" rel="next">
+            <a href="/2024/04/04/2/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo1.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo2.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo2.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                LCA算法板子</h3>
+                子数组和为0计数</h3>
                 <hr>
               </div>
             </a>
