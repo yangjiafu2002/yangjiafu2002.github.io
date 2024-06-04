@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">c++ | learner&#39;blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "learner__";
+  mashiro_option.author_name = "learner__";
+  mashiro_option.site_url = "https://yangjiafu.cn";
+  mashiro_option.v_appId = "NuzvUhtMTC9BJEthhabKTvoq-gzGzoHsz";
+  mashiro_option.v_appKey = "QOqWfKDRocej7NyxDStdFdLJ";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(0).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(1).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(2).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(3).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(4).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(5).webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#89CFF0}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#89CFF0}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#89CFF0}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#89CFF0}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+  
+  <script>
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            $('[rel="icon"]').attr('href', "/img/trhx2.png");
+            document.title = 'ヽ(●-`Д´-)ノ';
+            clearTimeout(titleTime);
+        }
+        else {
+            $('[rel="icon"]').attr('href', "/img/trhx2.png");
+            document.title = 'ヾ(Ő∀Ő3)ノ' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+  </script>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://yangjiafu.cn">
+          <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/yangjiafu2002" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/dan-ran-12-38-52" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/qq.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/qq.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">learner__</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/模板/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          模板
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/题目/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          题目
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tag" aria-hidden="true"></i>
+                    标签云
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/articleCover/photo4.jpg);" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo4.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      c++</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">learner__</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2024-6-4<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1>多态注意点</h1>
+<pre><code class="language-cpp">class B{
+public:
+    int a = 1;
+};
+class D : public B{
+public:
+    int b = 1;
+};
+
+int main() {
+
+    D *pd = new D(); // 创建D类的对象
+    pd-&gt;a = 2;
+    B *pb = pd;      // 基类指针指向派生类对象
+
+    std::cout &lt;&lt; pb-&gt;a &lt;&lt; '\n';
+    // std::cout &lt;&lt; pb-&gt;b &lt;&lt; '\n'; error，基类指针pb指向派生类时，只能访问继承的部分
+
+    return 0;
+}
+</code></pre>
+<pre><code class="language-cpp">缺省参数早绑定，缺省参数对应的虚函数晚绑定
+</code></pre>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+class A{
+public:
+    A(){cout &lt;&lt; 1 &lt;&lt; '\n';}
+    A(A&amp;&amp; a) {cout &lt;&lt; 2 &lt;&lt; '\n';}
+    A(const A &amp;a) {cout &lt;&lt; 3 &lt;&lt; '\n';};
+    void operator = (const A&amp; a) {cout &lt;&lt; 4 &lt;&lt; '\n';} 
+};
+class B: public A{
+public:
+    B(){cout &lt;&lt; 'a' &lt;&lt; '\n';}
+    B(B&amp;&amp; b):A(b) {cout &lt;&lt; 'b' &lt;&lt; '\n';}
+    B(const B &amp;b):A(b) {cout &lt;&lt; 'c' &lt;&lt; '\n';};
+    void operator = (const B&amp; b) {cout &lt;&lt; 'd' &lt;&lt; '\n';} 
+};
+
+int main()
+{
+    B b;//1a
+    B m(b);//3c
+    B p = b;//3c，注意是初始化不是赋值操作，会隐式转换成P(b)
+    B q = move(b);//3b，注意A(b)进去就强转为左值了
+
+    return 0;
+}
+</code></pre>
+<h1>虚函数实现原理</h1>
+<p>1、虚函数的实现方式，是编译器决定的</p>
+<p><strong>2</strong>、<strong>如果类定义了虚函数，编译器会为该类创建一个虚函数表（其实是一个指针数组，数组存放的元素是虚函数地址），该虚函数表并不存储在类里面，编译器为类创建了一个隐藏指针（该指针占用存储空间），该指针指向虚函数表。每个类对象都会有一个隐藏指针。</strong></p>
+<p>3、如果声明了虚函数的类被继承，那么它的虚函数表，会被子类复制拷贝（内容一样，物理空间独立），如果该  类覆盖了父类的虚函数，那么虚函数表里面对应的函数指针就会指向，子类的覆盖函数。如果子类新定义了其他虚函数，那么在该虚函数表的后面追加虚函数指针。</p>
+<p>4、如果父类指针指向了一个子类对象，那么父类指针会获取子类对象的隐藏的虚函数表指针。当调用一个虚函数后，会通过虚函数表指针找到虚函数，再通过相对偏移，找到对应的虚函数指针，进而找到虚函数。</p>
+<p>5、调用虚函数是根据其相对虚函数表的首地址的偏移来查找的，只要将基类的虚函数表指针换成子类的基函数指针，自动就会寻找到子类定义的虚函数。</p>
+<p><strong>this-&gt;vptr-&gt;vtable-&gt;virtual fun</strong></p>
+<p><strong>虚函数表存放在全局区</strong></p>
+<p><strong>普通类成员函数放在代码区</strong></p>
+<p>不能声明为虚函数的函数：</p>
+<p><strong>构造函数</strong></p>
+<p><strong>友元函数</strong></p>
+<p><strong>非类成员函数</strong></p>
+<p><strong>静态成员函数</strong></p>
+<p>注意：内联函数可以为虚函数，但在表现多态性时不会进行内联(写没写inline是一样的)，因为<strong>内联函数是在编译时展开</strong></p>
+<h1>编译器处理虚函数表应该如何处理</h1>
+<p>拷⻉基类的虚函数表，如果是多继承，就拷⻉每个有虚函数基类的虚函数表<br>
+还有⼀个基类的虚函数表和派⽣类⾃身的虚函数表共⽤了⼀个虚函数表，也称为某个基类为派⽣类的主基类<br>
+查看派⽣类中是否有重写基类中的虚函数， 如果有，就替换成已经重写的虚函数地址；查看派⽣类是否有⾃<br>
+身的虚函数，如果有，就追加⾃身的虚函数到⾃身的虚函数表中</p>
+<h1>虚析构函数</h1>
+<p>解决：多态使用时，如果子类中有属性开辟到堆区，那么父类的指针在释放时无法调用子类的虚构函数</p>
+<p>如果声明了虚析构函数，则一定要有函数实现，不然在释放对象时会产生报错</p>
+<p>纯虚函数可以没有函数实现，因为纯虚函数不能实例化对象</p>
+<h1>获取虚函数表，虚函数地址</h1>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+class intelCPU
+{
+public:
+    virtual void run()
+    {
+        cout &lt;&lt; &quot;intelCPU 正在被调用&quot; &lt;&lt; '\n';
+    }
+};
+
+int main()
+{
+    intelCPU a;
+    cout &lt;&lt; *(int *)(&amp;a) &lt;&lt; '\n';//虚函数表地址，虚函数表位于类地址的首位
+    int addr = *(int *)(&amp;a);
+    cout &lt;&lt; *(int *)(addr + 0);//虚函数地址 *(int *)(addr + 4*x)，x从0开始，多一个虚函数就+1 
+
+    return 0;
+}
+</code></pre>
+<h1>菱形继承</h1>
+<p><strong>虚继承</strong></p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+class A
+{
+public:
+	int a;
+};
+class B : virtual public A
+{
+public:
+	int b;
+};
+class C : virtual public A
+{
+public:
+	int c;
+};
+class D : public B, public C //这里也可以加上virtual，但没有意义。但不能这里加virtual而上面没有加，因为这样会导致B，C中已经有各自独立的A的实例
+{
+public:
+	int d;
+};
+int main()
+{
+	D d;
+    cout &lt;&lt; &amp;d.a &lt;&lt; endl;//输出相同，d中只有一份副本
+	cout &lt;&lt; &amp;d.B::a &lt;&lt; endl;
+	cout &lt;&lt; &amp;d.C::a &lt;&lt; endl;
+	return 0;
+}
+</code></pre>
+<p><strong>虚继承中，D只会有一个虚函数表指针，指向ABC中虚函数共享的虚函数表</strong></p>
+<p><strong>非虚继承中，D中会有两个虚函数表指针</strong></p>
+<h1>c++11新特性</h1>
+<h2 id="auto"><strong>auto</strong></h2>
+<h2 id="别名模板">别名模板</h2>
+<pre><code class="language-cpp">template &lt;typename T&gt;
+using Vec = std::vector&lt;T&gt;;
+</code></pre>
+<pre><code class="language-cpp">template&lt;typename T, typename U&gt;
+struct A {
+    T t;
+    U u;
+};
+template&lt;typename T&gt;
+using B = A&lt;T, int&gt;;
+
+int main() {
+    B&lt;double&gt; b;
+    b.t = 10;
+    b.u = 20;
+    cout &lt;&lt; b.t &lt;&lt; endl;
+    cout &lt;&lt; b.u &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h2 id="智能指针"><strong>智能指针</strong></h2>
+<p>智能指针是一个类，用来存储指向动态分配对象的指针，负责自动释放动态分配的对象  ，防止堆内存泄漏。 当类对象声明周期结束时，自动调用析构函数释放资源。</p>
+<p>头文件<memory></memory></p>
+<p>C++11 引入 3 个智能指针类型：</p>
+<p><strong>unique_ptr</strong>：独占资源所有权指针</p>
+<p>unique_ptr 的使用比较简单，也是用得比较多的智能指针。当我们独占资源的所有权的时候，可以使用 unique_ptr 对资源进行管理——离开 unique_ptr 对象的作用域时，会自动释放资源</p>
+<p>unique_ptr 是 move-only 的，也是实现将一个 unique_ptr 对象赋值给另一个 unique_ptr 对象的方法</p>
+<pre><code class="language-cpp">{
+    std::unique_ptr&lt;int&gt; uptr = std::make_unique&lt;int&gt;(200);
+    std::unique_ptr&lt;int&gt; uptr1 = uptr;  // 编译错误，std::unique_ptr&lt;T&gt; 是 move-only 的
+
+    std::unique_ptr&lt;int&gt; uptr2 = std::move(uptr);
+    assert(uptr == nullptr);
+}
+</code></pre>
+<p><strong>shared_ptr</strong>：共享资源所有权指针</p>
+<p>shared_ptr 其实就是对资源做引用计数——当引用计数 sptr.use_count() 为 0的时候，自动释放资源。</p>
+<pre><code class="language-cpp">{
+    std::shared_ptr&lt;int&gt; sptr = std::make_shared&lt;int&gt;(200);
+    assert(sptr.use_count() == 1);  // 此时引用计数为 1
+    {   
+        std::shared_ptr&lt;int&gt; sptr1 = sptr;
+        assert(sptr.get() == sptr1.get());
+        assert(sptr.use_count() == 2);   // sptr 和 sptr1 共享资源，引用计数为 2
+    }   
+    assert(sptr.use_count() == 1);   // sptr1 已经释放
+}
+// use_count 为 0 时自动释放内存
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;mutex&gt;
+using namespace std;
+
+template&lt;typename T&gt;
+class shared_ptr{
+public:
+    explicit shared_ptr(T *ptr = nullptr)
+        :m_ptr(ptr), m_count(new unsigned int(0)), m_mutex(new mutex)
+    {
+        if(ptr != nullptr) addCount();
+    }
+    explicit shared_ptr(const shared_ptr&lt;T&gt; &amp;sp)
+        :m_ptr(sp.m_ptr), m_count(sp.m_count), m_mutex(sp.m_mutex)
+    {
+        addCount();
+    }
+    shared_ptr&lt;T&gt;&amp; operator= (const shared_ptr&lt;T&gt; &amp;sp)
+    {
+        if(m_ptr != sp.m_ptr)
+        {
+            release();
+            m_ptr = sp.m_ptr;
+            m_count = sp.m_count;
+            m_mutex = sp.m_mutex;
+            addCount();
+        }
+        return *this;
+    } 
+
+    T* operator-&gt; ()
+    {
+        return m_ptr;
+    }
+    T operator* ()
+    {
+        return *m_ptr;
+    }
+    T* get()
+    {
+        return m_ptr;
+    }
+    unsigned int getCount()
+    {
+        return *m_count;
+    }
+
+    ~shared_ptr()
+    {
+        release();
+    }
+
+private:
+    T* m_ptr;
+    unsigned int *m_count;
+    mutex *m_mutex;
+
+    void addCount()
+    {
+        m_mutex-&gt;lock();
+        ++(*m_count);
+        m_mutex-&gt;unlock();
+    }
+
+    void release()
+    {
+        bool deleteFlag = false;
+        m_mutex-&gt;lock(); 
+        if(--(*m_count) == 0)
+        {
+            delete m_ptr;
+            m_ptr = NULL;
+            delete m_count;
+            m_count = NULL;
+            deleteFlag = true;
+        }
+        m_mutex-&gt;unlock();
+        if(deleteFlag)
+        {
+            delete m_mutex;
+            m_mutex = NULL;
+        }
+    }
+};
+
+int main()
+{
+    shared_ptr&lt;int&gt; p1(new int(6));
+    cout &lt;&lt; p1.getCount() &lt;&lt; '\n';
+    shared_ptr&lt;int&gt; p2(p1);
+    cout &lt;&lt; p1.getCount() &lt;&lt; '\n';
+    shared_ptr&lt;int&gt; p3;
+    p3 = p1;
+    cout &lt;&lt; p1.getCount() &lt;&lt; '\n';
+    cout &lt;&lt; *p1 &lt;&lt; ' ' &lt;&lt; *p2 &lt;&lt; ' ' &lt;&lt; *p3 &lt;&lt; '\n';
+
+    shared_ptr&lt;int&gt; p4(new int(7));
+    p3 = p4;
+
+    cout &lt;&lt; p1.getCount() &lt;&lt; ' ' &lt;&lt; p4.getCount() &lt;&lt; '\n';
+
+    return 0;
+}
+</code></pre>
+<p><strong>weak_ptr</strong>：共享资源的观察者，需要和shared_ptr一起使用</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+class CB;
+class CA {
+  public:
+    CA() {
+      std::cout &lt;&lt; &quot;CA()&quot; &lt;&lt; std::endl;
+    }
+    ~CA() {
+      std::cout &lt;&lt; &quot;~CA()&quot; &lt;&lt; std::endl;
+    }
+    void set_ptr(std::shared_ptr&lt;CB&gt;&amp; ptr) {
+      m_ptr_b = ptr;
+    }
+  private:
+    std::shared_ptr&lt;CB&gt; m_ptr_b;
+};
+
+class CB {
+  public:
+    CB() {
+      std::cout &lt;&lt; &quot;CB()&quot; &lt;&lt; std::endl;
+    }
+    ~CB() {
+      std::cout &lt;&lt; &quot;~CB()&quot; &lt;&lt; std::endl;
+    }
+    void set_ptr(std::shared_ptr&lt;CA&gt;&amp; ptr) {
+      m_ptr_a = ptr;
+    }
+  private:
+    std::weak_ptr&lt;CA&gt; m_ptr_a;
+};
+
+int main()
+{
+  std::shared_ptr&lt;CA&gt; ptr_a(new CA());
+  std::shared_ptr&lt;CB&gt; ptr_b(new CB());
+  ptr_a-&gt;set_ptr(ptr_b);
+  ptr_b-&gt;set_ptr(ptr_a);
+  std::cout &lt;&lt; ptr_a.use_count() &lt;&lt; &quot; &quot; &lt;&lt; ptr_b.use_count() &lt;&lt; std::endl;//1 2
+	
+  return 0;
+}
+</code></pre>
+<p><strong>weak_ptr绑定到一个shared_ptr不会改变shared_ptr的引用计数</strong></p>
+<h2 id="atomic"><strong>atomic</strong></h2>
+<p>原子变量是特殊的数据类型，提供了一种线程安全的方式来访问和修改共享数据，而无需使用显式的互斥锁 。</p>
+<p>memory库中的shared_ptr就是使用atomic保证的线程安全</p>
+<pre><code class="language-cpp">atomic&lt;int&gt; a(1);//声明
+b = a.fetch_add(1);//b = 1，a = 2，a.fetch_add(1)的返回值是原来的值
+b = a.load();//b = 2，a.load()返回a的当前值
+</code></pre>
+<p>原子变量只有使用原子操作( fetch_add(后置自增) 、 compare_exchange_strong 、load(读)、store(修改)等)才是线程安全的</p>
+<p>++、–、+ 等有对应原子操作运算都会转换成原子操作</p>
+<p>使用非原子操作函数来访问 <code>std::atomic</code> 变量的底层值，那么这些操作就不再是线程安全</p>
+<h2 id="内存序">内存序</h2>
+<p>C++11中的内存序（memory order）是一种用于指定原子操作在多线程环境中如何同步的机制。它定义了<strong>原子操作对内存的访问顺序</strong>，以及如何在不同线程之间传播内存修改的规则</p>
+<p><strong>只有原子操作支持内存序</strong></p>
+<p>c++11有6种内存序</p>
+<p>名次解释：</p>
+<p>​	**happens-before:**按照程序的代码序执行<br>
+​	**synchronized-with:**不同线程间，对于同一个原子操作，需要同步关系，store操作一定要先于 load，也就是说 对于一个原子变量x，先写x，然后读x是一个同步的操作，读x并不会读取之前的值，而是写x后的值。</p>
+<h3 id="memory-order-relaxed"><strong>memory_order_relaxed</strong></h3>
+<p>不对执行顺序做保证，没有 happens-before的约束。</p>
+<pre><code class="language-cpp">// 线程 1 ：
+r1 = y.load(std::memory_order_relaxed); // A
+x.store(r1, std::memory_order_relaxed); // B
+// 线程 2 ：
+r2 = x.load(std::memory_order_relaxed); // C 
+y.store(6, std::memory_order_relaxed); // D
+</code></pre>
+<p>执行顺序可能是DABC</p>
+<h3 id="memory-order-acquire-和memory-order-release"><strong>memory_order_acquire 和memory_order_release</strong></h3>
+<p>memory_order_release保证本线程中,所有之前的写操作完成后才能执行本条原子操作。</p>
+<p>memory_order_acquire保证本线程中,所有后续的读操作必须在本条原子操作完成后执行。</p>
+<pre><code class="language-cpp">#include &lt;thread&gt;
+#include &lt;atomic&gt;
+#include &lt;cassert&gt;
+#include &lt;string&gt;
+ 
+std::atomic&lt;std::string*&gt; ptr;
+int data;
+void producer()
+{
+    std::string* p  = new std::string(&quot;Hello&quot;);
+    data = 42;
+    ptr.store(p, std::memory_order_release);
+}
+void consumer()
+{
+    std::string* p2;
+    while (!(p2 = ptr.load(std::memory_order_acquire)))
+        ;
+    assert(*p2 == &quot;Hello&quot;); // 绝无问题
+    assert(data == 42); // 绝无问题
+}
+int main()
+{
+    std::thread t1(producer);
+    std::thread t2(consumer);
+    t1.join(); t2.join();
+}
+</code></pre>
+<p>memory_order_release和memory_order_acquire的组合提供了一种保证线程间操作顺序和可见性的机制，从而避免了数据竞争和其他并发错误。</p>
+<p>如果只有memory_order_release而没有memory_order_acquire，虽然能保证data更新了，但可能因为缓存一致性导致执行 assert(data == 42); data的值不可见还是旧值0</p>
+<h3 id="memory-order-consume">memory_order_consume</h3>
+<h3 id="memory-order-acq-rel">memory_order_acq_rel</h3>
+<p>memory_order_acquire 和memory_order_release的结合</p>
+<h3 id="memory-order-seq-cst"><strong>memory_order_seq_cst</strong></h3>
+<p>同步模式，同时也是默认的模型，具有强烈的happens-before语义，<br>
+来保证指令的顺序一致执行，相当于不打开编译器优化指令，按照正常的指令序执行。多线程各原子操作也会Synchronized-with，譬如atomic::load()需要等待atomic::store()写下元素才能读取。更进一步地，读操作需要在“一个写操作对所有处理器可见”的时候才能读，适用于基于缓存的体系结构。</p>
+<h2 id="lambda-匿名函数"><strong>lambda</strong>(匿名函数)</h2>
+<pre><code class="language-cpp">//[&amp;],[=],[A, B, C]只获得ABC
+auto f = [](int a, int b) -&gt;{
+	return a + b;
+}
+</code></pre>
+<pre><code class="language-cpp">void fun1()//值捕获会在lambda创建时拷贝
+{
+    size_t v1 = 42;
+    auto f = [v1]() mutable {return ++v1;};
+    v1 = 0;
+    auto j = f();//43
+}
+void fun2()//引用捕获会在lambda调用时引用
+{
+    size_t v1 = 42;
+    auto f = [&amp;v1]() {return ++v1;};
+    v1 = 0;
+    auto j = f();//1
+}
+</code></pre>
+<h2 id="右值"><strong>右值</strong></h2>
+<p>一个<strong>非引用左值</strong>强制类型转换后为<strong>右值</strong></p>
+<h2 id="nullptr"><strong>nullptr</strong></h2>
+<p>NULL是0，而nullptr就是空指针，有自己的类型</p>
+<p>根据类型可以抛出异常</p>
+<h2 id="constexpr"><strong>constexpr</strong></h2>
+<p>可以用来判断一个表达式是否为常量表达式</p>
+<p>在编译时就确定其修饰对象的值</p>
+<p>constexpr<strong>指针</strong> 所指变量必须是全局变量或者static变量</p>
+<p>const: 限定一个变量不允许被改变</p>
+<p>如何const 修饰的变量是常量或表达式)式则在<strong>编译时</strong>确定值，不然在运行时确定值</p>
+<p>引用类型必须于其所引用的对象类型一致，但用一种例外。</p>
+<p>初始化常量[引用]时允许用任意表达式作为初始值</p>
+<pre><code class="language-cpp">int i = 1;
+const int &amp;a = i;//correct
+const int b = i;
+</code></pre>
+<h2 id="final和overide关键字"><strong>final和overide关键字</strong></h2>
+<p>overide：告诉编译器这个函数一定会重写基类中的虚函数，如果基类中没有该虚函数则编译无法通过</p>
+<p>final：告诉编译器这个函数到当前截止，后面有类继承该类也不能重写该函数。也可以修饰类，表示该类不可以被继承</p>
+<pre><code class="language-cpp">struct Base1 final { };
+struct Derived1 : Base1 {}; // 编译错：Base1不允许被继承
+struct Base2 {
+    virtual void f1() final;
+    virtual void f2();
+};
+struct Derived2 : Base2 {
+    virtual void f1(); // 编译错：f1不允许重写
+    virtual void f2(int) override; // 编译错：⽗类中没有 void f2(int)
+};
+</code></pre>
+<h1>C++14新特性</h1>
+<h2 id="函数返回类型推导">函数返回类型推导</h2>
+<pre><code class="language-cpp">auto func(int i) {
+    return i;
+}
+</code></pre>
+<h2 id="lambda-参数-auto">lambda 参数 auto</h2>
+<pre><code class="language-cpp">auto f = [] (int a) { return a; }//c++11
+auto f = [] (auto a) { return a; };//c++14
+</code></pre>
+<h2 id="变量模板">变量模板</h2>
+<pre><code class="language-cpp">template&lt;class T&gt;
+constexpr T pi = T(3.1415926535897932385L);
+
+int main() {
+    cout &lt;&lt; pi&lt;int&gt; &lt;&lt; endl; // 3
+    cout &lt;&lt; pi&lt;double&gt; &lt;&lt; endl; // 3.14159
+    return 0;
+}
+</code></pre>
+<h2 id="放宽对constexpr的限制">放宽对constexpr的限制</h2>
+<p>C++11中constexpr函数可以使用递归，在C++14中可以使用局部变量和循环</p>
+<pre><code class="language-cpp">constexpr int factorial(int n) { // C++14 和 C++11均可
+    return n &lt;= 1 ? 1 : (n * factorial(n - 1));
+}
+constexpr int factorial(int n) { // C++11中不可，C++14中可以
+    int ret = 0;
+    for (int i = 0; i &lt; n; ++i) {
+        ret += i;
+    }
+    return ret;
+}
+</code></pre>
+<p>C++11中constexpr函数必须必须把所有东西都放在一个单独的return语句中，c++14则无此限制</p>
+<pre><code class="language-cpp">constexpr int func(bool flag) { // C++14 和 C++11均可
+    return 0;
+}
+constexpr int func(bool flag) { // C++11中不可，C++14中可以
+    if (flag) return 1;
+    else return 0;
+}
+</code></pre>
+<h2 id="二进制字面量与整形字面量分隔符">二进制字面量与整形字面量分隔符</h2>
+<pre><code class="language-cpp">int a = 0b0001'0011'1010;
+double b = 3.14'1234'1234'1234;
+</code></pre>
+<h2 id="std-make-unique">std::make_unique</h2>
+<pre><code class="language-cpp">struct A {};
+std::unique_ptr&lt;A&gt; ptr = std::make_unique&lt;A&gt;();
+</code></pre>
+<h2 id="std-exchange">std::exchange</h2>
+<p>exchange(a, b) 将a变成b，函数返回a的旧值</p>
+<pre><code class="language-cpp">int main() {
+    std::vector&lt;int&gt; v;
+    std::exchange(v, {1,2,3,4});
+    cout &lt;&lt; v.size() &lt;&lt; endl;
+    for (int a : v) {
+        cout &lt;&lt; a &lt;&lt; &quot; &quot;;
+    }
+    return 0;
+}
+</code></pre>
+<p>exchange源码</p>
+<pre><code class="language-cpp">template&lt;class T, class U = T&gt;
+constexpr T exchange(T&amp; obj, U&amp;&amp; new_value) {
+    T old_value = std::move(obj);
+    obj = std::forward&lt;U&gt;(new_value);
+    return old_value;
+}
+</code></pre>
+<p>std::forward 是模板函数，用于实现完美转发，可以提高效率</p>
+<p>当new_value是左值时，则将其<strong>拷贝</strong>给obj</p>
+<p>当new_value是右值时，则将其<strong>移动</strong>给obj</p>
+<h1>c++17新特性</h1>
+<h2 id="构造函数模板推导">构造函数模板推导</h2>
+<pre><code class="language-cpp">pair p(1, 2.2); // c++17 自动推导
+vector v = {1, 2, 3}; // c++17
+</code></pre>
+<h2 id="结构化绑定">结构化绑定</h2>
+<h2 id="折叠表达式">折叠表达式</h2>
+<p>可以简化可变参数模板编程</p>
+<pre><code class="language-cpp">template &lt;typename ... Ts&gt;
+auto sum(Ts ... ts) {
+    return (ts + ...);
+}
+int a {sum(1, 2, 3, 4, 5)};
+</code></pre>
+<h2 id="命名空间嵌套定义">命名空间嵌套定义</h2>
+<pre><code class="language-cpp">namespace A {
+    namespace B {
+        namespace C {
+            void func();
+        }
+    }
+}
+// c++17，更方便更舒适
+namespace A::B::C {
+    void func();
+}
+</code></pre>
+<h1>c++20新特性</h1>
+<h2 id="模块">模块</h2>
+<p>**解决：**使用#include包含头文件进行模块化编程。但是#include是在预处理阶段引入文件里的内容，尤其是涉及到递归引入时，增加编译时长；头文件做出修改，所有引入该头文件的翻译单元均需要重新编译，也会增加编译时间；同时头文件内的宏、全局变量否是在全局命名空间中定义，易导致命名冲突</p>
+<p>**改进了编译速度和性能 ：**模块会被编译器预先编译一次</p>
+<p>**更快的构建时间：**由于模块可以减少头文件的重复解析和编译，因此可以加快整体的构建时间</p>
+<p>**避免宏污染：**传统的#include预处理指令可能会引入不必要的宏定义，可能导致命名空间污染和意外的行为。使用模块可以减少这种情况的发生，因为模块的导入更为明确</p>
+<p>**提高代码的可维护性：**模块提供了更清晰的接口和依赖关系，使得代码更易于理解、维护和重用。</p>
+<pre><code class="language-cpp">//math_separate.ixx
+//该模块接口文件无模块全局片段
+// 导出模块接口，模块接口部分
+export module math_separate;
+
+// 定义模块接口
+export int add(int a, int b);
+
+
+//math_separate.cpp
+module;
+#include&lt;iostream&gt;
+
+//如下一行含义为指明该文件为math_separate的实现文件
+module math_separate;
+
+int add(int a, int b)//模块实现
+{
+  std::cout &lt;&lt; a &lt;&lt; &quot;+&quot; &lt;&lt; b &lt;&lt; &quot;=&quot; &lt;&lt; a + b &lt;&lt; &quot;\n&quot;;
+  return a + b;
+}
+</code></pre>
+<p>一个模块可以分割为一个模块接口文件和多个模块实现文件，可以存在一对多的关系</p>
+<h2 id="协程">协程</h2>
+<p>协程是一个可以暂停执行以便稍后恢复的<strong>函数</strong> 。</p>
+<p>协程的挂起和恢复是通过<strong>协程句柄</strong>(保存执行的上下文)来实现的。而不是通过阻塞线程来实现。</p>
+<p>线程因为是linux系统内核提供，所以他是有独立的栈空间和执行上下文的。而协程则没有， 多个协程可能都在一个线程里面运行，他是一个轻量级的线程。</p>
+<p>进程和线程切换都会有内核态和用户态的切换，而协程则是用户自己控制切换的时机，并不需要切换至内核态，所以这样以来执行效率非常高</p>
+<p>适合异步执行，同步写法写异步代码，让异步代码更加简洁</p>
+<p>c++20引入三个与协程相关的关键字</p>
+<p><strong>co_await</strong>：暂停协程并等待一个操作完成</p>
+<p><strong>co_yield</strong> ：返回一个值给协程的调用者，并暂停协程的执行</p>
+<p><strong>co_return</strong>：返回一个值并终止协程</p>
+<p>主程序与协程间用 <strong>promise</strong> 进行通信，类似与管道</p>
+<h1>LRU</h1>
+<pre><code class="language-cpp">class Node{
+public:
+    int key, val;
+    Node *pre, *next;
+    Node(int key, int val)
+    {
+        this-&gt;key = key;
+        this-&gt;val = val;
+        pre = NULL;
+        next = NULL;
+    }
+};
+
+class LRUCache {
+public:
+    LRUCache(int capacity) 
+    {
+        this-&gt;capacity = capacity;
+        head = new Node(-1, -1);
+        tail = new Node(-1, -1);
+        head-&gt;next = tail;
+        tail-&gt;pre = head;
+    }
+    
+    void remove(Node *p)
+    {
+        p-&gt;pre-&gt;next = p-&gt;next;
+        p-&gt;next-&gt;pre = p-&gt;pre;
+    }
+
+    void insert(Node *p)
+    {
+        p-&gt;next = head-&gt;next;
+        p-&gt;pre = head;
+        head-&gt;next-&gt;pre = p;
+        head-&gt;next = p;
+    }
+
+    int get(int key) 
+    {
+        if(hash.find(key) == hash.end()) return -1;
+        
+        Node *p = hash[key];
+        remove(p);
+        insert(p);
+        return p-&gt;val;
+    }
+    
+    void put(int key, int value) 
+    {
+        if(hash.find(key) != hash.end())
+        {
+            Node* p = hash[key];
+            p-&gt;val = value;
+            remove(p);
+            insert(p);
+        }
+        else
+        {
+            if(hash.size() == capacity)
+            {
+                Node *p = tail-&gt;pre;
+                remove(p);
+                hash.erase(p-&gt;key);
+                delete p;
+                p = NULL;
+            }
+
+            Node *p = new Node(key, value);
+            hash[key] = p;
+            insert(p);
+        }
+    }
+
+    ~LRUCache()
+    {
+        while(head != NULL)
+        {
+            Node *nowNode = head;
+            head = head-&gt;next;
+            
+            delete nowNode;
+            nowNode = NULL;
+        }
+    }
+
+private:
+    int capacity;
+    Node *head, *tail;
+    unordered_map&lt;int, Node*&gt; hash;
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj-&gt;get(key);
+ * obj-&gt;put(key,value);
+ */
+</code></pre>
+<h1>STL</h1>
+<pre><code class="language-cpp">vector
+	1、底层：动态数组。可以自动调整大小。它使用一块连续的内存块来存储元素，可以通过指针运算来快速访问元素。
+		当需要扩大容量时，会重新申请一块更大的内存，将原来的元素拷贝到新的内存块中，并释放原来的内存。
+		因此，在插入和删除元素时，可能需要移动内存块中的很多元素，导致效率低下，当然，要看实际操作如何。
+	2、时间复杂度
+		2.1 访问元素O(1)：支持随机访问，也就是可以通过下标或者迭代器直接访问任意位置的元素；指针运算直接获取地址。
+		2.2 插入、删除：在末尾插入删除时间复杂度为O(1)，不存在数据的移动；其他地方的情况下，时间复杂度平均为O(n)。
+		2.3 扩容O(n)：当容量capcity == size时需要扩容，申请一块新的地址空间，然后将数据拷贝到新的空间中。
+			vector容器对象，初始容量默认为0（C++11），如果进行数据添加一次，此时会扩容为1；若是再继续添加就会按照增加一倍的方式继续扩容（2、4、8...）。
+		2.4 查找元素O(n)
+	3、相关问题
+		3.1 vector内部如何实现动态扩容？
+			当容量不足以存储新元素时，会分配一个更大的内存块，将原有元素复制到新内存中，并释放原来的空间。新的内存块大小通常为当前容量的2倍数。
+		3.2 vector如何避免内存浪费？
+			vector采取预留空间的机制，即在未使用完当前容量时，可以预留一定的额外空间，避免不必要的内存重新分配。通过调用reserve(newCapcity)函数可以提前分配好内存块的大小。
+		3.3 vector&lt;int&gt;和vector&lt;bool&gt; 的差异是什么？
+			vector&lt;int&gt;是将整数类型存储在连续的内存中，每个元素都占用固定字节数。
+			vector&lt;bool&gt;实现为位向量，每个元素都只占用一个二进制位，最小化内存占用。
+		3.4 vector的迭代器失效情况有哪些？
+			当vector进行插入或者删除操作时，可能会导致指向元素的迭代器失效。取决于这些位置是否发生了改变，可能未改变。
+		3.6 vector和array的区别？
+			vector是一种动态数组，可以动态增加和删除元素；
+			array是一种静态数组，一旦声明之后就无法改变大小。
+			此外，由于array是固定大小的，因此可以在栈上分配空间，比堆上分配的vector更快。
+    		在main()中开一个vector&lt;int&gt; vec(5)，vec对象本身在栈上分配空间，但vec管理的内存，也就是vec中的元素实在堆上分配的。
+
+​	
+
+list
+	1、底层：双向链表，即每个节点都包含指向前驱和后继节点的指针。与vector不同，list的元素在内存中不是连续存储的，因此可以高效的插入或者删除任意位置的元素。
+	2、时间复杂度
+		bool empty() const：								判断 list 是否为空，O(1)
+		size_type size() const：							返回 list 的大小，O(1)
+		void resize(size_type sz, T c = T())：				调整 list 大小为 sz，新增的元素使用值 c 初始化，O(n)
+		void clear()：										清空 list，O(n)
+		reference front()，const_reference front() const：	返回第一个元素的引用，O(1)
+		reference back()，const_reference back() const：	返回最后一个元素的引用，O(1)
+		void push_front(const T&amp; x)：						在头部插入元素 x，O(1)
+		void push_back(const T&amp; x)：						在尾部插入元素 x，O(1)
+		void pop_front()：									删除头部元素，O(1)
+		void pop_back()：									删除尾部元素，O(1)
+		iterator insert(iterator position, const T&amp; x)：	在 position 前面插入元素 x，O(1)
+		iterator erase(iterator position)：					删除 position 指向的元素，O(1)
+
+		void remove(const T&amp; val)：							删除所有值为 val 的元素，O(n)
+		void reverse()：									反转 list，O(n)
+		void unique()：										删除相邻重复的元素，O(n)
+		void sort()：										使用默认排序规则（operator&lt;）对 list 进行排序，O(n log n)
+	
+		bool operator==(const list&amp; rhs) const：			判断两个 list 是否相等，O(n)
+		bool operator!=(const list&amp; rhs) const：			判断两个 list 是否不相等，O(n)
+		总体来说，list 在插入、删除、反转、查找等操作方面表现优秀，而在随机访问和排序方面则不如 vector 表现。
+	3、相关面试题
+		3.1 与vector相比，list有什么优点？
+			主要优点是支持高效地在任何位置添加或者删除节点元素，不会导致迭代器失效；
+			缺点是不支持随机访问，只能通过迭代器来访问元素，另外，空间占用较大。
+
+​	
+deque（双端队列double-ended queue）
+	1、底层：一个或者多个连续地存储块，每个存储块内部是一个固定大小地数组。当deque容量不足时，会分配新的存储块。
+    		这种设计使得deque可以在两端进行常数时间复杂度的插入和删除操作O(1)；在中间进行线性时间复杂度的插入和删除操作O(n)。
+    2、时间复杂度
+    	2.1 头插尾插、头删尾删：O(1)
+    	2.2 访问头元素和尾元素O(1)
+    	2.3 在指定位置插入元素O(n)
+    	总的来说，deque的优点在于支持高效的在两端进行插入和删除操作。但是如果存储块过多会导致性能下降，可用其他容器替代。
+    3、关于存储块
+    	如果一个deque中的一个存储块中的数据被清空了，这个存储块还是会存在着，并占据一定空间。这是因为deque的实现通常由多个存储块组成，每个存储块都会被分配一定空间。即使一个存储块中的数据被删除了，这个存储块仍然会存在不会立即回收这些空闲存储块，只是变成了空闲状态。以备后续继续添加数据，避免频繁元素数据数量变动进行存储块的分配和释放操作。
+    	一般情况下，当deque中的元素数量减少到某一定程度，实现会将多余的存储块释放掉，从而减少内存的占用，这个阈值可以是固定的也可以动态调整。
+    4、相关问题
+    	4.1 deque优势在哪？
+    		它是一种双端队列容器，可以在队列的两端进行快速插入和删除。与vector相比，deque的插入和删除操作的时间复杂度更加稳定，不受插入和删除位置的影响。同时，deque支持随机访问和迭代器操作，可以快速定位元素，但是相比于vector的快速定位会更慢些。
+    	4.2 deque和vector区别？
+    		底层数据结构：vector使用连续内存块存储元素，而deque使用多个固定大小的存储块组成的双向链表存储元素。
+    		插入和删除操作：vector时间复杂度为O(n)，除了尾部操作（O(1)）.deque两端操作为O(1)。
+    		迭代器失效：对于vector在插入和删除时，迭代器可能会失效；而deque只有在删除中间元素时，迭代器才会失效。
+    	4.3 使用场景
+    		需要在两端进行频繁插入和删除操作。
+    		需要对大量元素进行随机访问。
+    		当元素数量较大时，使用deque可以避免vector的内存管理问题和迭代器失效问题。
+​	
+set
+    1、介绍：一种关联容器，其中的元素按照一定的排序规则进行排序，并且每个元素只出现一次。因此可以使用set进行元素的查找和去重操作。
+    2、底层：红黑树结构，红黑树是一种自平衡的二叉查找树，相对于平衡二叉树性能更优。可以理解为平衡二叉树是对二叉排序树的优化，红黑树是对平衡二叉树的优化，在自平衡上提高了性能。
+    3、时间复杂度
+    	3.1 插入元素(自排序)：O(logn)
+    	3.2 删除元素：O(logn)
+    	3.3 查找元素：O(logn)
+    	3.4 遍历：O(n)
+    
+​  
+multiset：同set红黑树结构，只是允许数据相同，不会去重。
+
+​
+unordered_set
+    1、介绍：是哈希表实现，提供了快速的元素查找、插入、删除等操作。
+    2、底层：unordered_set底层使用了哈希表，一种根据关键字直接访问内存存储位置的数据结构，因此具备非常快的查找和插入速度。内部维护了一个动态数组和一个哈希表，哈希表中存储着指向动态数组中元素的指针。每个元素的位置是由哈希函数计算出来的，不同的元素可能会被映射到同一个位置上，因此哈希表中的每个元素都是一个链表，用于解决冲突。
+    3、插入流程介绍：
+    	有元素插入，根据该元素计算出该元素的哈希值，这个哈希值直接定位到内存地址，也就是上面动态数组中的位置（桶）；
+    	如果该位置不存在任何元素，那么就插入；
+    	但是，哈希函数表示绝对完美的，可能会出现多个元素映射到同一个地址，此时，会在桶中维护一个链表，将哈希值相同的元素存储在同一个链表中。这种情况下，若是冲突过多，查找效率会变低。
+    4、时间复杂度
+    	4.1 插入：O(1); 最坏O(n)，也就是所有元素全部映射到一个地址。
+    	4.2 删除：O(1)；最坏O(n)
+    	4.3 查找：O(1)；最坏O(n)
+    	4.3 遍历：O(n)
+    5、特点：
+    	5.1 元素无序
+    	5.2 不允许有重复元素，会去重
+    	5.3 可以自定义哈希函数，用来计算元素的哈希值。在自定义类型中就需要自定义哈希函数，用于比较两个元素时候相同。
+	6、相关问题
+    	6.1 实现原理是什么？
+    		通过哈希表实现，具体来说是一个数组，每个数组元素都是一个链表。当要插入或者查找元素时，首先根据元素的哈希值得到它在数组中的位置，然后在对应链表中进行操作。
+    	6.2 使用场景？
+    		适用于需要快速查找和插入元素的场景，因为哈希表的查找和插入复杂度都是常数级别。
+    	6.3 为什么unordered_set的迭代器只支持前向迭代器？
+    		因为底层是哈希表，每个桶中可能有多个元素，采用链表或者红黑树来解决哈希冲突。每个桶内的元素是无序的，不会按照用户的插入顺序存放，因此只能向前遍历每个桶中的元素。此外，内部的存储结构可能随时变化，因此迭代器的递增过程也比较复杂，只能实现向前遍历。
+
+​
+map
+    1、介绍：是一个关联容器，用于存储键值对，其中的键和值都可以是任何类型。每个键在map中都是唯一的，内部采用红黑树实现。
+    2、底层：底层使用红黑树实现，每个节点包含一个键值对pair，按照键值关系构建一颗二叉查找树。
+    3、时间复杂度：
+    	插入、删除、查找 ： O(logn); 遍历O(n)
+    	虽然能够自平衡，但是在极端情况下会退化为链表，比如插入的数据有序。
+    4、特性：
+    	类似于set，根据键自动排序；可自定义比较函数。如果插入键相同的元素，那么之前的值会被替换成新插入的。
+    5、相关问题
+    	5.1 Map 和 unordered_map 的区别是什么?
+    		Map 和 unordered_map 都是 C++ 中的关联式容器，它们的区别在于底层的实现方式不同。Map 使用红黑树来实现，而 unordered_map 使用哈希表来实现。因此，在大多数情况下，unordered_map 的查找和插入操作比 Map 更快，但是在某些情况下，Map 的性能可能会更好。
+
+​
+multimap：基本同map，但是可以插入键相同的元素。
+
+​    
+unordered_map（底层类似于unordered_set)
+    	1、介绍： unordered_map（无序映射）是一种关联容器，用于存储由键值对组成的元素。它使用哈希表作为底层实现，可以实现常数时间内的查找、插入和删除操作，因此在需要快速访问元素的场景中很有用。
+    	2、底层：unordered_map 的底层实现是哈希表，哈希表是一种通过哈希函数将键映射到值的数据结构。哈希表通常包含一个数组，每个元素都是一个桶，桶中存放着哈希值相同的键值对。
+    	3、时间复杂度
+    		查找一个元素（operator[]、at、find）：平均时间复杂度为 O(1)，最坏情况下为 O(n)；
+            插入一个元素（insert）：平均时间复杂度为 O(1)，最坏情况下为 O(n)；
+            删除一个元素（erase）：平均时间复杂度为 O(1)，最坏情况下为 O(n)；
+            遍历所有元素（begin/end/for）：时间复杂度为 O(n)。
+    	4、相关问题
+   			4.1 unordered_map 是如何实现的？
+                unordered_map 通常是使用哈希表实现的，它的键和值都存储在桶中。哈希表将键映射到桶中，这是通过哈希函数计算出来的。当多个键被映射到同一个桶时，它们存储在链表中。当链表变得太长时，它们被转换为更高效的数据结构，如红黑树。
+       		4.2 unordered_map 的底层数据结构是什么？
+       		   unordered_map 的底层数据结构是哈希表，具体实现可能会有所不同，但通常包括一个桶数组和一个哈希函数。
+        	4.3 unordered_map 的时间复杂度是什么？
+       		   在平均情况下，unordered_map 的插入、删除和查找操作的时间复杂度都是 O(1)，但在最坏情况下，这些操作的时间复杂度会退化到 O(n)。这是因为如果哈希函数产生的哈希冲突太多，就会导致链表变得非常长，降低了效率。
+
+​
+stack
+    1、介绍：一种先进后出的容器，即栈。
+    2、底层使用deque进行二次封装。因此它也可以动态扩容。
+
+​
+queue
+    1、介绍：是一种先进先出的数据结构。队列容器在任务队列、消息队列等应用中非常常见。
+    2、底层：通常使用deque作为其底层数据结构来实现。但是queue是不支持随机访问的。
+
+​
+array
+    1、底层：底层是C++的普通数组，是固定大小的。初始化时需要指定大小
+
+</code></pre>
+<h1><strong>强制类型转换</strong></h1>
+<p>1.静态转换(static_cast)：可以用于基本数据类型之间的转换，也可以将基类指针或引用转换为派生类指针或引用，但是转换时需要保证类型转换是安全的。静态转换不能用于去除对象的const、volatile属性。</p>
+<p>2.动态转换(dynamic_cast)：主要用于将基类指针或引用转换为派生类指针或引用，但是转换时需要判断类型转换是否安全，如果不安全则返回空指针。只有指向具有多态性质的类的基类指针或引用才能使用dynamic_cast。</p>
+<p>**安全：**基类至少有一个虚函数，基类指针指向的需要是派生类对象</p>
+<p>**用法：**static_cast&lt;目的类型&gt;(表达式)</p>
+<p>基类和派生类之间的转换–没有virtual</p>
+<pre><code class="language-cpp">class A
+{
+public:
+	void fn() { cout &lt;&lt; &quot;A::fn&quot; &lt;&lt; endl; }
+	void gn() { cout &lt;&lt; &quot;A::gn&quot; &lt;&lt; endl; }
+};
+class B :public A
+{
+public:
+	void fn() { cout &lt;&lt; &quot;B::fn&quot; &lt;&lt; endl; }//隐藏，没有虚
+	void hn() { cout &lt;&lt; &quot;B::hn&quot; &lt;&lt; endl; }
+};
+int main()
+{
+	A a;
+	B b;
+	A* pa = &amp;b;
+	pa-&gt;fn();//A
+	pa-&gt;gn();//A
+//	B* pb = &amp;a;//error
+	B* pb = static_cast&lt;B*&gt;(&amp;a);
+	pb-&gt;fn();//B
+	pb-&gt;gn();//A
+	pb-&gt;hn();//B
+	pb-&gt;A::fn();//A
+}
+</code></pre>
+<p>两个无关类</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+class A
+{
+public:
+	void fn() { cout &lt;&lt; &quot;A::fn&quot; &lt;&lt; endl; }
+};
+class B
+{
+public:
+	B(A&amp;a){}//构造函数可以进行强转
+	void gn() { cout &lt;&lt; &quot;B::gn&quot; &lt;&lt; endl; }
+};
+int main()
+{
+	A a;
+	B b = static_cast&lt;B&gt;(a);//B b(a);
+	b.gn();
+}
+</code></pre>
+<h1>关键字</h1>
+<p><strong>volatile：</strong> 允许修饰的变量被一些未知的外部因素访问，如操作系统和硬件，所以访问该变量时都会重新从内存中读取数据</p>
+<pre><code class="language-cpp">volatile int i；
+</code></pre>
+<p><strong>extern：</strong></p>
+<p>作用1.对变量或函数进行声明，表示在别处定义要在此处声明。</p>
+<pre><code class="language-cpp">//config.cpp
+int globalConfig = 42;
+</code></pre>
+<pre><code class="language-cpp">// main.cpp
+#include &lt;iostream&gt;
+
+extern int globalConfig;
+
+int main() {
+    std::cout &lt;&lt; &quot;Global Config value is: &quot; &lt;&lt; globalConfig &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<pre><code class="language-cpp">g++ -c config.cpp -o config.o
+g++ -c main.cpp -o main.o
+g++ config.o main.o -o program.exe //链接
+./program.exe
+</code></pre>
+<p>如果不写 “extern int globalConfig;” 则会在编译的<strong>编译过程</strong>中产生报错</p>
+<p>作用2： 指示 C 或者 C+＋函数的调⽤规范， 在 C++ 中调用 C 库函数，就需要在 C++ 程序中用 extern “C” 声明要引用的函数 。原因就是 C++ 和 C 程序编译完成后在目标代码中命名规则不同</p>
+<h1>类只能动态分配和只能静态分配</h1>
+<p>**动态分配：**将析构函数设置为protected类型，因为在栈上分配空间会先检查析构函数是否可访问，不可访问会拒绝申请</p>
+<p>**静态分配：**将new运算符设置为私有，禁用</p>
+<pre><code class="language-cpp">class A
+{
+private:
+     void* operator new(size_t t){}          //注意函数的第一个参数和返回值都是固定的
+     void operator delete(void* ptr){}       //重载了new就需要重载delete
+};
+</code></pre>
+<h1><strong>堆排序</strong></h1>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+void keep_heap(vector&lt;int&gt; &amp;v, int n, int node)
+{
+    int left = node * 2 + 1;
+    int right = node * 2 + 2;
+    if(left &gt; n - 1) return;
+
+    if(right &gt; n - 1)
+    {
+        if(v[node] &lt; v[left])
+        {
+            swap(v[node], v[left]);
+            keep_heap(v, n, left);
+        }
+    }
+    else
+    {
+        if(v[left] &gt; v[node] &amp;&amp; v[left] &gt;= v[right]) 
+        {
+            swap(v[node], v[left]);
+            keep_heap(v, n, left);
+        }
+        else if(v[right] &gt; v[node] &amp;&amp; v[right] &gt;= v[left])
+        {
+            swap(v[node], v[right]);
+            keep_heap(v, n, right);
+        }
+    }
+}
+
+void big_heap(vector&lt;int&gt; &amp;v)
+{
+    int node = v.size() / 2 - 1;
+    while(node &gt;= 0)
+    {
+        keep_heap(v, v.size(), node);
+        node--;
+    }
+}
+
+void heap_sort(vector&lt;int&gt; &amp;v)
+{
+    big_heap(v);
+    int n = v.size();
+    for(int i = n - 1; i &gt;= 0; i--)
+    {
+        swap(v[0], v[i]);
+        n--;
+        keep_heap(v, n, 0);
+    }
+}
+
+int main()
+{
+    vector&lt;int&gt; v = {91,60,96,13,35,65,46,65,10,30,20,31,77,81,22};
+    heap_sort(v);
+
+    for (auto it : v) cout &lt;&lt; it &lt;&lt; &quot; &quot;;
+
+    return 0;
+}
+</code></pre>
+<h1>希尔排序</h1>
+<pre><code class="language-cpp">// 希尔排序
+void shellSort(vector&lt;int&gt;&amp; nums) {
+    for (int gap = nums.size() / 2; gap &gt; 0; gap /= 2) {
+        for (int i = gap; i &lt; nums.size(); ++i) {
+            for (int j = i; j - gap &gt;= 0 &amp;&amp; nums[j - gap] &gt; nums[j]; j -= gap) {
+                swap(nums[j - gap], nums[j]);
+            }
+        }
+    }
+}
+</code></pre>
+<h1>编译过程</h1>
+<p>**预处理：**展开所有宏、删除注释等。将 <strong>.c</strong> 文件转换为 <strong>.i</strong> 文件</p>
+<p><strong>编译：</strong> 把预处理完的文件进行一系列<strong>语法分析、语义分析</strong>以及优化后生成相应的汇编代码文件，<strong>.i</strong> 转换为 <strong>.s</strong></p>
+<p><strong>汇编：<strong>将汇编语言转换为机器指令(二进制)，</strong>.s</strong> 转换为 <strong>.o</strong></p>
+<p><strong>链接：<strong>将所有 .o 文件和库链接在一起生成可执行文件。</strong>.o</strong> 转换为 <strong>.out</strong></p>
+<h1>静态链接库和动态链接库</h1>
+<p><strong>静态链接库</strong>是把lib文件中用到的函数代码直接链接进目标程序，运行时就不需要其它的库文件</p>
+<p><strong>动态链接库</strong>是把调用函数所在的DLL文件和函数在文件中的位置等信息链接进目标程序，运行时查找相关代码</p>
+<h1>模板</h1>
+<p>非类型模板参数</p>
+<pre><code class="language-cpp">template&lt;unsigned int N, unsigned int M&gt;
+void compare(char (&amp;p1) [N], char (&amp;p2) [M]){
+    cout &lt;&lt; N &lt;&lt; ' ' &lt;&lt; M &lt;&lt; '\n';
+}
+</code></pre>
+<p>使用 compare(“hi”, “mom”)会实例化成 compare(char (&amp;p1) [3], char (&amp;p2) [4]) 因为会在字符串字面常量末尾插入一个 ‘\0’</p>
+<p><strong>类模板被实例化时，成员变量会被实例化，而成员函数需要在使用时才会被实例化。</strong></p>
+<h2 id="可变参数模板">可变参数模板</h2>
+<p>可变参数函数通常是递归的</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+template&lt;typename T&gt;
+void print(const T &amp;t)
+{
+    cout &lt;&lt; t &lt;&lt; ' ';
+}
+template&lt;typename T, typename... Args&gt;
+void print(const T &amp;t, const Args&amp;... args)
+{
+    cout &lt;&lt; t &lt;&lt; ' ';
+    print(args...);
+    //函数参数展开，等价于print(a1, args(a2,a3,...,an))
+}
+template&lt;typename... Args&gt;
+void write(const Args&amp;... args)
+{
+    (print(args), ...);//折叠表达式，需要使用分隔符隔开
+    //等价于 print(a1),print(a2),...,print(an)
+}
+int main()
+{
+    print(1, 2, 6.1, &quot;abc&quot;);//输出 1, 2, 6.1, &quot;abc&quot;   
+    write(1, 2, 6.1, &quot;abc&quot;);//输出 1, 2, 6.1, &quot;abc&quot;   
+    return 0;
+}
+</code></pre>
+<h2 id="模板特例化">模板特例化</h2>
+<pre><code class="language-cpp">template &lt;typename T, int Line, int Column&gt;     // (1)
+class Matrix;
+
+template &lt;typename T&gt;                           // (2)
+class Matrix&lt;T, 3, 3&gt;{};
+
+template &lt;&gt;                                     // (3)
+class Matrix&lt;int, 3, 3&gt;{};
+</code></pre>
+<ul>
+<li><strong>主模板</strong> 第 (1) 行是主模板。主模板必须在部分或全特化模板之前声明。如果不需要主模板，像第 (1) 行这样的声明就可以了。</li>
+<li><strong>偏特化</strong> 第 (2) 行是偏特化模板。<strong>只有类模板支持偏特化</strong>。一个偏特化模板有模板形参和明确指定的模板实参。在这个例子中，类 <code>Matrix</code> 的 <code>T</code> 是模板形参，数字是模板实参。</li>
+<li><strong>全特化</strong> 第 (3) 行是全特化模板。“全”意味着所有的模板实参都已明确，模板形参列表为空：正如第 (3) 行的 <code>template &lt;&gt;</code> 所示。</li>
+</ul>
+<p>使用模板特例化，<strong>判断两个数据类型是否相同</strong></p>
+<pre><code class="language-cpp">// 主模板定义
+template&lt;class T1, class T2&gt;
+class my_is_same {
+public:
+    operator bool() { // 重载隐式转换
+        return false;
+    }
+};
+// 特例化定义，当两个类型参数相同
+template&lt;class T1&gt;
+class my_is_same&lt;T1, T1&gt; {
+public:
+    operator bool() {
+        return true;
+    }
+};
+int main() {
+    // 使用 my_is_same 来判断两个类型是否相同
+    std::cout &lt;&lt; std::boolalpha &lt;&lt; my_is_same&lt;int, float&gt;() &lt;&lt; std::endl;
+    std::cout &lt;&lt; my_is_same&lt;int, int&gt;() &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+<h1>类型擦除</h1>
+<p>类型擦除指的是通过一些技术擦除c++的类型信息，使得一个数据结构或算法能够应用于不同类型的数据</p>
+<p>技术是通过<strong>模板</strong>和<strong>多态(父类指针指向子类对象)</strong></p>
+<h1>c++内存分区</h1>
+<p>全局静态区、常量区、代码区、堆区、栈区</p>
+<h1>堆和栈的区别</h1>
+<p>**堆：**需要手动分配内存，低地址向高地址扩展。不连续内存空间，会产生内存碎片。</p>
+<p>**栈：**自动分配内存，高地址向低地址扩展。连续内存空间，不会产生内存碎片。</p>
+<h1>sizeof</h1>
+<p>sizeof 是运算符</p>
+<pre><code class="language-cpp">int i = 1;
+cout &lt;&lt; i &lt;&lt; '\n';//1
+cout &lt;&lt; sizeof(++i) &lt;&lt; '\n';//4
+cout &lt;&lt; i &lt;&lt; '\n';//1 因为sizeof会在编译时确定大小
+</code></pre>
+<h1>union</h1>
+<p><strong>union变量共用内存</strong></p>
+<pre><code class="language-cpp">union u {
+    int a;
+    int b;
+};
+union u mu;
+mu.a = 1;
+cout &lt;&lt; mu.b;//输出：mu.b = 1
+</code></pre>
+<p><strong>占用内存为最大的变量类型所占用内存的整数倍</strong></p>
+<pre><code class="language-cpp">union u {
+    char a[9];       //9*1=9字节
+    int b[3];        //3*4=12字节
+    double c;        //8字节
+};
+cout &lt;&lt; sizeof(union u);// 输出16  #8*2=16大于任意变量所需字节数
+</code></pre>
+<p><strong>大端小端</strong></p>
+<p><img src="C:%5CUsers%5C%E6%B7%A1%E7%87%83%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1715145628727.png" alt="1715145628727"></p>
+<p>在union中，数据都是从<strong>低地址开始存放</strong>，所以可以用来判断是大端还是小端</p>
+<pre><code class="language-cpp">union A{
+	char a;
+	int b;
+	/*
+	char 占一个字节,int占四个字节
+	所以联合体的大小为四个字节,且a b公用一块内存
+	当对b赋值为1时,则b=0x00 00 00 01; ====》数据从高到低  地址从低到高
+	当为大端模式时:读取a得到的值为0;   ====》低位地址高位数据
+	当为小端模式时:读取a得到的值为1;  ====》低位地址低位数据
+	*/
+};
+</code></pre>
+<pre><code class="language-cpp">union {
+    int a;
+    char b[2];
+    char c;
+} u;
+int main()
+{
+    u.a = 0;
+    u.b[0] = 0x10;
+    u.b[1] = 0x11;
+    cout &lt;&lt; hex &lt;&lt; u.a &lt;&lt; '\n';//1110，b[0]是低位，b[1]是高位
+    u.c = 0x22;
+    cout &lt;&lt; hex &lt;&lt; u.a &lt;&lt; '\n';//1122，c占用b[0]的位置
+
+    return 0;
+}
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+union{
+    int a;
+    char b[3];
+}u;
+
+int main()
+{
+	u.a = 0;
+    u.b[0] = 0x1;
+    u.b[1] = 0x2;
+    u.b[2] = 0x3;
+
+    cout &lt;&lt; hex &lt;&lt; u.a;//输出30201
+
+	return 0;
+}
+</code></pre>
+<h1>new</h1>
+<p><strong>new 可以在指定地址上进行调用</strong></p>
+<p>一般用于在预分配的内存块中分配对象</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+class MyClass {
+public:
+    MyClass() { std::cout &lt;&lt; &quot;Constructor called.&quot; &lt;&lt; std::endl; }
+    ~MyClass() { std::cout &lt;&lt; &quot;Destructor called.&quot; &lt;&lt; std::endl; }
+};
+int main() {
+    char buffer[sizeof(MyClass)]; // 预分配内存
+    MyClass* obj = new (buffer) MyClass(); // 在指定地址上构造对象
+
+    obj-&gt;~MyClass(); // 显式调用析构函数
+    // 如果 buffer 是动态分配的，还需要手动释放内存
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <!-- <div class="reward-open">赏 -->
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          <!-- </div> -->
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2024/06/04/5/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo5.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo5.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                SQL</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2024/04/16/3/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo3.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo3.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                写一个函数在 main 函数执⾏前先运⾏</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments"></div>
+    <script>
+    new Valine({
+                el: '#vcomments',
+                appId: '5uFVcaXuhCKCxD1aoBuPGLUx-gzGzoHsz',
+                appKey: '8YL2qqdhRPCOessUQWx18Z7J',
+                placeholder: "昵称处输入QQ账号可获取自己头像~",
+                avatar:'',//小怪物头像,
+                visitor: true, // 阅读量统计
+                enableQQ: true
+            })
+    </script>
+
+
+
+
+<!-- 来必力City版安装代码 -->
+<!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81OTcwNS8zNjE2Nw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div> -->
+<!-- City版安装代码已完成 -->
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg" itemprop="image" alt="learner__" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">learner__</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>不积跬步，无以至千里！</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 learner<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <!-- <p style="color: #666666;">&copy 2018</p> -->
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+        <br>
+        <!-- 运行时间 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt= new Date("03/21/2024 09:10:00");//此处修改建站时间或者网站上线时间
+                now.setTime(now.getTime()+250);
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()",250);
+        </script>  
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer> 
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">learner__</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/模板/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  模板
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/题目/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  题目
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/tags/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tag" aria-hidden="true"></i>
+            标签云
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="6809763477"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+
+<!-- 点击出现彩色气球爆炸效果 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/clickBom.js"></script>
+
+<!-- 彩色飘带 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+
+<!-- 动态线条，随鼠标动 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/canvas-nest.min.js"></script>
+
+<!-- 樱花飘落 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/sakura.js"></script>
+</html>

@@ -38,7 +38,7 @@
   mashiro_option.site_url = "https://yangjiafu.cn";
   mashiro_option.v_appId = "NuzvUhtMTC9BJEthhabKTvoq-gzGzoHsz";
   mashiro_option.v_appKey = "QOqWfKDRocej7NyxDStdFdLJ";
-  mashiro_option.mathjax = "0";
+  mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -224,9 +224,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/生活/">
+                        <a href="/categories/模板/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
+                          模板
                         </a>
                       </li>
                     
@@ -238,16 +238,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/随想/">
-                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                          随想
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/转载/">
+                        <a href="/categories/题目/">
                           <i class="fa fa-book" aria-hidden="true"></i>
-                          转载
+                          题目
                         </a>
                       </li>
                     
@@ -398,41 +391,42 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="B-Eugene-and-an-array（一个数组中，求和为0的子数组的数量）"><a href="#B-Eugene-and-an-array（一个数组中，求和为0的子数组的数量）" class="headerlink" title="B. Eugene and an array（一个数组中，求和为0的子数组的数量）"></a>B. Eugene and an array（一个数组中，求和为0的子数组的数量）</h1><p><a href="https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B" target="_blank" rel="noopener">https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B</a> </p>
+          <h1>B. Eugene and an array（一个数组中，求和为0的子数组的数量）</h1>
+<p><a href="https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B" target="_blank" rel="noopener">https://codeforces.ml/group/DOZ49JViPG/contest/380948/problem/B</a></p>
 <p>题意：定义一个数组为 good array 如果该数组的所有子数组和都不为 0</p>
 <p>求一个数组中有多少个子数组是 good array。</p>
 <p>思路：运用前缀和查找出和为 0 的子数组，若前缀 pre[i] 之前存在一个相同的 pre[j] (j &lt; i)， 则子数组 [j, i] 的和为 0, 若 pre[i] == 0， 则其本身也是一个和为 0 的子数组。</p>
-<pre><code class="cpp">#include&lt;bits/stdc++.h&gt;
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 #define ll long long
 #define ull unsigned long long
 #define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-
+ 
 const ll N = 2e5 + 5;
-
+ 
 ll n, pre[N];
 map&lt;ll, ll&gt; mp;//记录前缀和相同的最右边的位置
-
+ 
 void solve()
 {
-    cin &gt;&gt; n;
-    ll ans =n * (n + 1) / 2;//答案最大值为 n * (n + 1) / 2, 后续处理删除不符合条件的子数组
-    ll l = 0;//用l标记左边已经处理到的位置，l前面的无需处理，否则会造成重复子数组的删除
-    for (ll i = 1, x; i &lt;= n; i++)
-    {
-        cin &gt;&gt; x;
-        pre[i] = pre[i - 1] + x;//预处理前缀和
-    }
-    for (ll i = 1; i &lt;= n; i++)
-    {
-        if (mp[pre[i]] + 1 &gt; l &amp;&amp; (mp[pre[i]] || !pre[i]))//要删除[mp[pre[i]] + 1, i]的子数组，若mp[pre[i]] + 1 &gt; l则当前可删除为删除过的子数组(删除区间[l, mp[pre[i]] + 1 &gt; l]中的部分元素)
-        {
-            ans -= (mp[pre[i]] - l + 1) * (n - i + 1);//删除不符合条件并且没有删过的子数组
-            l = mp[pre[i]] + 1;//将l更新至最右边， 端点在左边不符合条件的子数组均已删除
-        }
-        mp[pre[i]] = i;
-    }
-    cout &lt;&lt; ans &lt;&lt; &#39;\n&#39;;
+	cin &gt;&gt; n;
+	ll ans =n * (n + 1) / 2;//答案最大值为 n * (n + 1) / 2, 后续处理删除不符合条件的子数组
+	ll l = 0;//用l标记左边已经处理到的位置，l前面的无需处理，否则会造成重复子数组的删除
+	for (ll i = 1, x; i &lt;= n; i++)
+	{
+		cin &gt;&gt; x;
+		pre[i] = pre[i - 1] + x;//预处理前缀和
+	}
+	for (ll i = 1; i &lt;= n; i++)
+	{
+		if (mp[pre[i]] + 1 &gt; l &amp;&amp; (mp[pre[i]] || !pre[i]))//要删除[mp[pre[i]] + 1, i]的子数组，若mp[pre[i]] + 1 &gt; l则当前可删除为删除过的子数组(删除区间[l, mp[pre[i]] + 1 &gt; l]中的部分元素)
+		{
+			ans -= (mp[pre[i]] - l + 1) * (n - i + 1);//删除不符合条件并且没有删过的子数组
+			l = mp[pre[i]] + 1;//将l更新至最右边， 端点在左边不符合条件的子数组均已删除
+		}
+		mp[pre[i]] = i;
+	}
+	cout &lt;&lt; ans &lt;&lt; '\n';
 }
 </code></pre>
 
@@ -740,9 +734,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
+                <a href="/categories/模板/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
+                  模板
                 </a>
               </li>
             
@@ -754,16 +748,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/随想/">
-                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                  随想
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/转载/">
+                <a href="/categories/题目/">
                   <i class="fa fa-book" aria-hidden="true"></i>
-                  转载
+                  题目
                 </a>
               </li>
             

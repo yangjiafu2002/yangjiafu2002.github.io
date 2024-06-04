@@ -38,7 +38,7 @@
   mashiro_option.site_url = "https://yangjiafu.cn";
   mashiro_option.v_appId = "NuzvUhtMTC9BJEthhabKTvoq-gzGzoHsz";
   mashiro_option.v_appKey = "QOqWfKDRocej7NyxDStdFdLJ";
-  mashiro_option.mathjax = "0";
+  mashiro_option.mathjax = "1";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
@@ -224,9 +224,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/生活/">
+                        <a href="/categories/模板/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
+                          模板
                         </a>
                       </li>
                     
@@ -238,16 +238,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/随想/">
-                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                          随想
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/转载/">
+                        <a href="/categories/题目/">
                           <i class="fa fa-book" aria-hidden="true"></i>
-                          转载
+                          题目
                         </a>
                       </li>
                     
@@ -398,7 +391,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h4 id="LCA"><a href="#LCA" class="headerlink" title="LCA"></a>LCA</h4><h5 id="tarjan"><a href="#tarjan" class="headerlink" title="tarjan"></a><strong>tarjan</strong></h5><pre><code class="cpp">#include &lt;bits/stdc++.h&gt;
+          <h4 id="LCA">LCA</h4>
+<h5 id="tarjan"><strong>tarjan</strong></h5>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
 const ll N = 5e5 + 7;
@@ -444,46 +439,47 @@ signed main() {
     }
     tarjan(s);
     for (int i = 1; i &lt;= m; i++)
-        cout &lt;&lt; ans[i][2] &lt;&lt; &#39;\n&#39;;
+        cout &lt;&lt; ans[i][2] &lt;&lt; '\n';
     return 0;
 }
 </code></pre>
-<h5 id="倍增"><a href="#倍增" class="headerlink" title="倍增"></a>倍增</h5><p>两个节点到达同一节点后，不论怎么向上走，达到的显然还是同一节点 </p>
-<pre><code class="cpp">int fa[21][N], dep[N];
+<h5 id="倍增">倍增</h5>
+<p>两个节点到达同一节点后，不论怎么向上走，达到的显然还是同一节点</p>
+<pre><code class="language-cpp">int fa[21][N], dep[N];
 void dfs(int x, int pre, int d)//找到每个节点父亲与深度
 {
-    fa[0][x] = pre;
-    dep[x] = d;
-    for(auto &amp;to : g[x]) if(to != pre) dfs(to, x, d + 1);
+	fa[0][x] = pre;
+	dep[x] = d;
+	for(auto &amp;to : g[x]) if(to != pre) dfs(to, x, d + 1);
 }
 int LCA(int u, int v)
 {
-    if(dep[u] &gt; dep[v]) swap(u, v);
-    int temp = dep[v] - dep[u];//将u v移到同一深度
-    for(int i = 0; ((1 &lt;&lt; i) &lt;= temp); i++) if((1 &lt;&lt; i) &amp; temp) v = fa[i][v];
-    if(u == v) return u;
-    for(int i = log2(n); i &gt;= 0; i--)//两个节点一起往上走
-    {                                 //最多合法的跳跃是 2 ^ log2(n)
-        if(fa[i][u] != fa[i][v])//如果相同则代表跳的太多了
-        {
-            u = fa[i][u];
-            v = fa[i][v];
-        }
-    }
-    return fa[0][u];
+	if(dep[u] &gt; dep[v]) swap(u, v);
+	int temp = dep[v] - dep[u];//将u v移到同一深度
+	for(int i = 0; ((1 &lt;&lt; i) &lt;= temp); i++) if((1 &lt;&lt; i) &amp; temp) v = fa[i][v];
+	if(u == v) return u;
+	for(int i = log2(n); i &gt;= 0; i--)//两个节点一起往上走
+	{								 //最多合法的跳跃是 2 ^ log2(n)
+		if(fa[i][u] != fa[i][v])//如果相同则代表跳的太多了
+		{
+			u = fa[i][u];
+			v = fa[i][v];
+		}
+	}
+	return fa[0][u];
 }
 void init_LCA()// 注意根节点是什么，dfs 默认是根节点是 1 
 {
     for(int j = 0; j &lt;= 20; j++) for( int i = 1; i &lt;= n; i++) fa[j][i] = 0;
-    dfs(root, -1, 0);
-    for(int j = 0; (1 &lt;&lt; j) &lt;= n; j++)//预处理出每个节点往上走2^j所到的节点，超过根节点记为-1
-    {
-        for(int i = 1; i &lt;= n; i++) 
-        {
-            if(fa[j][i] &lt; 0) fa[j + 1][i] = -1;
-            else fa[j + 1][i] = fa[j][fa[j][i]];
-        }
-    }
+	dfs(root, -1, 0);
+	for(int j = 0; (1 &lt;&lt; j) &lt;= n; j++)//预处理出每个节点往上走2^j所到的节点，超过根节点记为-1
+	{
+		for(int i = 1; i &lt;= n; i++) 
+		{
+			if(fa[j][i] &lt; 0) fa[j + 1][i] = -1;
+			else fa[j + 1][i] = fa[j][fa[j][i]];
+		}
+	}
 }
 </code></pre>
 
@@ -515,7 +511,7 @@ void init_LCA()// 注意根节点是什么，dfs 默认是根节点是 1
       <section class="post-squares nextprev">
         
           
-            <div class="post-nepre full previous">
+            <div class="post-nepre half previous">
           
             <a href="/2024/04/04/2/" rel="prev">
               <div class="background">
@@ -531,6 +527,23 @@ void init_LCA()// 注意根节点是什么，dfs 默认是根节点是 1
             </a>
           </div>
         
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2023/01/01/8/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo8.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo8.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                DP</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
         
       </section>
       
@@ -774,9 +787,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
+                <a href="/categories/模板/">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
+                  模板
                 </a>
               </li>
             
@@ -788,16 +801,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/随想/">
-                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                  随想
-                </a>
-              </li>
-            
-              <li>
-                <a href="/categories/转载/">
+                <a href="/categories/题目/">
                   <i class="fa fa-book" aria-hidden="true"></i>
-                  转载
+                  题目
                 </a>
               </li>
             

@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">数据结构 | learner&#39;blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "learner__";
+  mashiro_option.author_name = "learner__";
+  mashiro_option.site_url = "https://yangjiafu.cn";
+  mashiro_option.v_appId = "NuzvUhtMTC9BJEthhabKTvoq-gzGzoHsz";
+  mashiro_option.v_appKey = "QOqWfKDRocej7NyxDStdFdLJ";
+  mashiro_option.mathjax = "1";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(0).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(1).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(2).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(3).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(4).webp,https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/cover/(5).webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#89CFF0}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#89CFF0}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#89CFF0}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#89CFF0}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+  
+  <script>
+    var OriginTitle = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+            $('[rel="icon"]').attr('href', "/img/trhx2.png");
+            document.title = 'ヽ(●-`Д´-)ノ';
+            clearTimeout(titleTime);
+        }
+        else {
+            $('[rel="icon"]').attr('href', "/img/trhx2.png");
+            document.title = 'ヾ(Ő∀Ő3)ノ' + OriginTitle;
+            titleTime = setTimeout(function () {
+                document.title = OriginTitle;
+            }, 2000);
+        }
+    });
+  </script>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://yangjiafu.cn">
+          <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With some drive!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/yangjiafu2002" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://www.zhihu.com/people/dan-ran-12-38-52" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/social/qq.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/qq.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">learner__</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/模板/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          模板
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/题目/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          题目
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/tags/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-tag" aria-hidden="true"></i>
+                    标签云
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(/images/articleCover/photo14.jpg);" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo14.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      数据结构</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">learner__</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2024-6-4<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1>并查集</h1>
+<pre><code class="language-cpp">struct DSU
+{
+    vector&lt;int&gt; fa, sz;
+    DSU(int n) : fa(n+1), sz(n + 1, 1) { iota(fa.begin(), fa.end(), 0); }
+    int find(int x){
+        while (x != fa[x]) x = fa[x] = fa[fa[x]];
+        return x;
+    }
+    bool same(int x, int y) { return find(x) == find(y); }
+    bool merge(int x, int y){
+        x = find(x);
+        y = find(y);
+        if (x == y) return false;
+        if (sz[x] &gt; sz[y]) swap(x, y);
+        sz[y] += sz[x];
+        fa[x] = y;
+        return true;
+    }
+    int size(int x) { return sz[find(x)]; }
+};
+</code></pre>
+<h1>树状数组</h1>
+<pre><code class="language-cpp">struct BIT {
+    int n; vector&lt;int&gt; c;
+    BIT(int sz) : n(sz), c(sz + 1) {};
+    int lowbit(int x) { return x &amp; -x; }
+    void add(int x, int val) {
+        while (x &lt;= n) c[x] += val, x += lowbit(x);
+    }
+    int getsum(int x){
+        int ans = 0;
+        while (x) ans += c[x], x -= lowbit(x);
+        return ans;
+    }
+    int query(int l, int r){ return getsum(r) - getsum(l - 1); }
+    int kth(int k) {//大于等于k的最小位置
+    	int res = 0, x = 0; 
+    	for (int i = log2(n); i &gt;= 0; --i) {
+        	x += 1 &lt;&lt; i;                 
+        	if (x &gt;= n || res + c[x] &gt;= k) x -= 1 &lt;&lt; i;
+        	else res += c[x];
+    	}
+   		return x + 1;
+	}
+};
+</code></pre>
+<h1><strong>线段树</strong></h1>
+<h4 id="单点修改-区间和查询">单点修改 区间和查询</h4>
+<pre><code>struct SegTree {
+	struct node {
+		int l, r, sum;
+	}tree[N &lt;&lt; 2];//四倍大小
+	void push_up(int p)
+	{
+		tree[p].sum = tree[p &lt;&lt; 1].sum + tree[p &lt;&lt; 1 | 1].sum;
+	}
+	void build(int l, int r, int p)
+	{
+		tree[p].l = l, tree[p].r = r;
+		if (l == r)
+		{
+			tree[p].sum = a[l];
+			return;
+		}
+		int mid = (l + r) / 2;
+		build(l, mid, p &lt;&lt; 1);
+		build(mid + 1, r, p &lt;&lt; 1 | 1);
+		push_up(p);
+	}
+	void update(int pos, int val, int p)//单点修改，直接修改值
+	{
+		int  l = tree[p].l, r = tree[p].r;
+		if (l == r)
+		{
+			tree[p].sum = val;
+			return;
+		}
+		int mid = (l + r) / 2;
+		if (pos &lt;= mid)
+			update(pos, val, p &lt;&lt; 1);
+		else
+			update(pos, val, p &lt;&lt; 1 | 1);
+		push_up(p);
+	}
+	int query(int ql, int qr, int p)//查询区间和
+	{
+		int l = tree[p].l, r = tree[p].r;
+		if (ql &lt;= l &amp;&amp; qr &gt;= r)
+		{
+			return tree[p].sum;
+		}
+		int mid = (l + r) / 2;
+		int ans = 0;
+		if (ql &lt;= mid)
+			ans += query(ql, qr, p &lt;&lt; 1);
+		if (qr &gt; mid)
+			ans += query(ql, qr, p &lt;&lt; 1 | 1);
+		return ans;
+	}
+};
+</code></pre>
+<h4 id="区间修改-区间查询-最大值">区间修改 区间查询 最大值</h4>
+<pre><code class="language-cpp">struct SegTree {
+	struct node {
+		int l, r, mx, lazy;
+	}tree[N &lt;&lt; 2];
+	void build(int l, int r, int p)
+	{
+		tree[p].l = l, tree[p].r = r;
+        tree[p].mx = tree[p].lazy = 0;
+		if (l == r)
+			return;
+		int mid = (l + r) / 2;
+		build(l, mid, p &lt;&lt; 1);
+		build(mid + 1, r, p &lt;&lt; 1 | 1);
+	}
+	void push_up(int p)
+	{
+		tree[p].mx = max(tree[p &lt;&lt; 1].mx, tree[p &lt;&lt; 1 | 1].mx);
+	}
+	void push_down(int p)
+	{
+		if (!tree[p].lazy)
+			return;
+		tree[p &lt;&lt; 1].mx += tree[p].lazy;
+		tree[p &lt;&lt; 1 | 1].mx += tree[p].lazy;
+		tree[p &lt;&lt; 1].lazy += tree[p].lazy;
+		tree[p &lt;&lt; 1 | 1].lazy += tree[p].lazy;
+		tree[p].lazy = 0;
+	}
+	void update(int ul, int ur, int val, int p)
+	{
+		int l = tree[p].l, r = tree[p].r;
+		if (ul &lt;= l &amp;&amp; ur &gt;= r)
+		{
+			tree[p].mx += val;
+			tree[p].lazy += val;
+			return;
+		}
+		push_down(p);
+		int mid = (l + r) / 2;
+		if (ul &lt;= mid)
+			update(ul, ur, val, p &lt;&lt; 1);
+		if (ur &gt; mid)
+			update(ul, ur, val, p &lt;&lt; 1 | 1);
+		push_up(p);
+	}
+	int query(int ql, int qr, int p)
+	{
+		int l = tree[p].l, r = tree[p].r;
+		if (ql &lt;= l &amp;&amp; qr &gt;= r)
+			return tree[p].mx;
+		push_down(p);
+		int mid = (l + r) / 2;
+		int ans = 0;
+		if (ql &lt;= mid)
+			ans = max(ans, query(ql, qr, p &lt;&lt; 1));
+		if (qr &gt; mid)
+			ans = max(ans, query(ql, qr, p &lt;&lt; 1 | 1));
+		return ans;
+	}
+}sg;
+</code></pre>
+<h1><strong>主席树（ 可持久化权值线段树 ）</strong></h1>
+<pre><code class="language-cpp">int n, m, a[N], b[N];///求区间[l,r]中的第k大元素
+
+struct node{
+	int ls, rs, sum;//ls：左儿子编号 lr：右儿子编号 sum：元素个数
+}tree[N&lt;&lt;5];//一般开32倍大小 
+int rt[N], sz;//rt[i]：第i个根节点编号 sz ：节点数量
+
+void update(int l, int r, int &amp;x, int y, int p)
+{
+	x = ++sz;
+	tree[x] = tree[y];//先将节点原点信息复制
+	tree[x].sum++;//元素个数增加
+	if(l == r) return;
+	int mid = (l + r) / 2;
+	if(p &lt;= mid) update(l, mid, tree[x].ls, tree[y].ls, p);
+	else update(mid + 1, r, tree[x].rs, tree[y].rs, p);
+}
+
+int query(int l, int r, int x, int y, int k)
+{
+	int temp = tree[tree[y].ls].sum - tree[tree[x].ls].sum;//左半边元素个数
+	if(l == r) return l;
+	int mid = (l + r) / 2;
+	if(temp &gt;= k) return query(l, mid, tree[x].ls, tree[y].ls, k);
+	else return query(mid+1, r, tree[x].rs, tree[y].rs, k - temp);
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	for(int i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a[i];
+		b[i] = a[i];
+	}
+	sort(b + 1, b + 1 + n);
+	int len = unique(b + 1, b + 1 + n) - b - 1;//离散化数据
+	
+	for(int i = 1; i &lt;= n; i++)
+	{
+		int p = lower_bound(b + 1, b + 1 + len, a[i]) - b;//寻找a[i]离散化后的数据
+		update(1, len, rt[i], rt[i-1], p);
+	}
+	while(m--)
+	{
+		ll l, r, k;
+		cin &gt;&gt; l &gt;&gt; r &gt;&gt; k;
+		cout &lt;&lt; b[query(1, len, rt[l-1], rt[r], k)] &lt;&lt; '\n';
+	}
+}
+</code></pre>
+<h1><strong>字典树</strong></h1>
+<p>字符串</p>
+<pre><code class="language-cpp">int tot;//点数
+struct node{
+	int alp[26];//alp[i]若为正数，则有可通向对应字母的点
+	int isend;//该点是否可以作为终点
+}tree[N];//开模式串个数*长度的大小
+
+void insert(string s)
+{
+	int p = 0;
+	for(int i = 0; i &lt; s.size(); i++)
+	{
+		int temp = s[i] - 'a';
+		if(!tree[p].alp[temp])
+			tree[p].alp[temp] = ++tot;
+		p = tree[p].alp[temp];
+	}
+	tree[p].isend = 1;
+}
+
+bool search(string s)
+{
+	int p = 0;
+	for(int i = 0; i &lt; s.size(); i++)
+	{
+		int temp = s[i] - 'a';
+		if(!tree[p].alp[temp])//没有对应的点
+			return false;
+		p = tree[p].alp[temp];
+	}
+	if(tree[p].isend)//判断该点是否可作为终点
+		return true;
+	return false;
+}
+
+void solve()
+{
+	cin&gt;&gt;n;
+	string s;
+	for(ll i = 1; i &lt;= n; i++)
+	{
+		cin&gt;&gt;s;
+		insert(s);
+	}
+    map&lt;string, ll&gt; mp;
+	cin&gt;&gt;q;
+	while(q--)
+	{
+		cin&gt;&gt;s;
+		bool f = search(s);
+		if(!f)
+			cout&lt;&lt;&quot;WRONG&quot;&lt;&lt;'\n';
+		else
+		{
+			mp[s]++;
+			if(mp[s] == 2)
+			{
+				cout&lt;&lt;&quot;REPEAT&quot;&lt;&lt;'\n';
+				mp[s] = 1;
+			}
+			else
+				cout&lt;&lt;&quot;OK&quot;&lt;&lt;'\n';
+		}
+	}//洛谷P2580
+} 
+</code></pre>
+<p>二进制</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;//cf 817E
+#define ll long long
+using namespace std;
+
+const int N = 1e5 + 5;
+
+ll n;
+
+struct node {
+	ll bit[2];
+	ll cnt;
+}tree[N &lt;&lt; 5];开模式串个数*长度的大小
+ll sz;
+
+void insert(ll num)
+{
+	ll p = 0;
+	for (ll i = 31; i &gt;= 0; i--)
+	{
+		if (!tree[p].bit[(num &gt;&gt; i) &amp; 1])
+			tree[p].bit[(num &gt;&gt; i) &amp; 1] = ++sz;
+		p = tree[p].bit[(num &gt;&gt; i) &amp; 1];
+		tree[p].cnt++;
+	}
+}
+
+void del(ll num)
+{
+	ll p = 0;
+	for (ll i = 31; i &gt;= 0; i--)
+	{
+		if (!tree[p].bit[(num &gt;&gt; i) &amp; 1])
+			return;
+		p = tree[p].bit[(num &gt;&gt; i) &amp; 1];
+		tree[p].cnt--;
+	}
+}
+
+ll search(ll num1, ll num2)
+{
+	ll p = 0;
+	ll ans = 0;
+	for (ll i = 31; i &gt;= 0; i--)
+	{
+		ll x = (num1 &gt;&gt; i) &amp; 1;
+		ll y = (num2 &gt;&gt; i) &amp; 1;
+		if (x == 1)
+		{
+			if (y == 1)
+			{
+				ans += tree[tree[p].bit[1]].cnt;
+				p = tree[p].bit[0];
+			}
+			else if (y == 0)
+				p = tree[p].bit[1];
+		}
+		else if (x == 0)
+		{
+			if (y == 1)
+			{
+				ans += tree[tree[p].bit[0]].cnt;
+				p = tree[p].bit[1];
+			}
+			else if (y == 0)
+				p = tree[p].bit[0];
+		}
+		if (!p)
+			break;
+	}
+	return ans;
+}
+
+void solve()
+{
+	cin &gt;&gt; n;
+	while (n--)
+	{
+		ll op;
+		cin &gt;&gt; op;
+		if (op == 1)
+		{
+			ll x;
+			cin &gt;&gt; x;
+			insert(x);
+		}
+		else if (op == 2)
+		{
+			ll x;
+			cin &gt;&gt; x;
+			del(x);
+		}
+		else
+		{
+			ll x, y;
+			cin &gt;&gt; x &gt;&gt; y;
+			cout &lt;&lt; search(x, y) &lt;&lt; '\n';
+		}
+	}
+}
+
+int main()
+{
+	solve();
+	return 0;
+}
+</code></pre>
+<h1>ST表</h1>
+<h4 id="一维ST表">一维ST表</h4>
+<p>最大/小值， gcd， 按位或</p>
+<pre><code class="language-cpp">int mx[21][N], Log[N];
+void init_ST()
+{
+	for (int j = 1; j &lt;= 20; j++)
+		for (int i = 1; i + (1 &lt;&lt; j) - 1 &lt;= n; i++)
+			mx[j][i] = max(mx[j - 1][i], mx[j - 1][i + (1 &lt;&lt; (j - 1))]);
+	Log[1] = 0;
+	for (int i = 2; i &lt;= n; i++) Log[i] = Log[i / 2] + 1;
+}
+int query(int l, int r)
+{
+	int k = Log[r - l + 1];
+	return max(mx[k][l], mx[k][r - (1 &lt;&lt; k) + 1]);
+}
+</code></pre>
+<h4 id="二维ST表">二维ST表</h4>
+<pre><code class="language-cpp">int mi[N][N][21][21], Log[N];
+void init_ST()
+{
+    for (int i = 0; i &lt;= 20; i++){
+        for (int j = 0; j &lt;= 20; j++){
+            if (i == 0 and j == 0) continue;
+            for (int k = 1; k &lt;= n - (1 &lt;&lt; i) + 1; k++){
+                for (int p = 1; p &lt;= m - (1 &lt;&lt; j) + 1; p++){
+                    if (i == 0) mi[k][p][i][j] = min(mi[k][p][i][j - 1], mi[k][p + (1 &lt;&lt; j - 1)][i][j - 1]);
+                    else mi[k][p][i][j] = min(mi[k][p][i - 1][j], mi[k + (1 &lt;&lt; i - 1)][p][i - 1][j]);
+                }
+            }
+        }
+    }
+    Log[1] = 0;
+	for (int i = 2; i &lt;= n; i++) Log[i] = Log[i / 2] + 1;
+}
+int query(int r1, int c1, int r2, int c2)
+{
+    int k1 = Log[r2 - r1 + 1];
+    int k2 = Log[c2 - c1 + 1];
+    return min({mi[r1][c1][k1][k2], mi[r2 - (1 &lt;&lt; k1) + 1][c1][k1][k2], mi[r1][c2 - (1 &lt;&lt; k2) + 1][k1][k2], mi[r2 - (1 &lt;&lt; k1) + 1][c2 - (1 &lt;&lt; k2) + 1][k1][k2]});
+}
+</code></pre>
+<h1>莫队</h1>
+<h4 id="莫队">莫队</h4>
+<pre><code class="language-cpp">//https://codeforces.com/contest/1484/problem/D
+#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define ull unsigned long long
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+using namespace std;
+
+const ll inf = 0x3f3f3f3f;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+const double eps = 1e-4;
+const ll mod = 1e9 + 7;
+const ll N = 5e4 + 5;
+
+ll n, m, a[N], len, pos[N], res, num[N], ans[N], le[N];
+struct node {
+	ll l, r, id;
+	bool operator &lt; (const node&amp; a) const
+	{
+		if (pos[l] != pos[a.l])
+			return pos[l] &lt; pos[a.l];
+		if (pos[l] % 2)
+			return r &lt; a.r;
+		return r &gt; a.r;
+	}
+}q[N];
+
+void add(ll x)
+{
+	res -= num[a[x]] * (num[a[x]] - 1) / 2;
+	num[a[x]]++;
+	res += num[a[x]] * (num[a[x]] - 1) / 2;
+}
+
+void del(ll x)
+{
+	res -= num[a[x]] * (num[a[x]] - 1) / 2;
+	num[a[x]]--;
+	res += num[a[x]] * (num[a[x]] - 1) / 2;
+}
+
+ll gcd(ll x, ll y)
+{
+	return y ? gcd(y, x % y) : x;
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	len = sqrt(n);
+	for (ll i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a[i];
+		pos[i] = (i + len - 1) / len;
+	}
+	for (ll i = 1; i &lt;= m; i++)
+	{
+		cin &gt;&gt; q[i].l &gt;&gt; q[i].r;
+		q[i].id = i;
+	}
+	sort(q + 1, q + 1 + m);
+	for (ll i = 1, l = 1, r = 0; i &lt;= m; i++)
+	{
+		while (l &gt; q[i].l)
+			add(--l);
+		while (r &lt; q[i].r)
+			add(++r);
+		while (l &lt; q[i].l)
+			del(l++);
+        while (r &gt; q[i].r)
+			del(r--);
+		ans[q[i].id] = res;
+		le[q[i].id] = q[i].r - q[i].l + 1;
+	}
+	for (ll i = 1; i &lt;= m; i++)
+	{
+		if (!ans[i])
+		{
+			cout &lt;&lt; &quot;0/1&quot; &lt;&lt; '\n';
+			continue;
+		}
+		ll x = le[i] * (le[i] - 1) / 2;
+		ll g = gcd(ans[i], x);
+		cout &lt;&lt; ans[i] / g &lt;&lt; &quot;/&quot; &lt;&lt; x / g &lt;&lt; '\n';
+	}
+}
+
+signed main()
+{
+	IOS;
+	ll t = 1;
+	//cin &gt;&gt; t;
+	while (t--)
+		solve();
+	return 0;
+}
+</code></pre>
+<h4 id="回滚莫队">回滚莫队</h4>
+<pre><code class="language-cpp">//https://vjudge.net/contest/501795#problem/D
+#include&lt;bits/stdc++.h&gt;
+#define ll long long
+#define ull unsigned long long
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+using namespace std;
+
+const ll inf = 0x3f3f3f3f;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+const double eps = 1e-4;
+const ll mod = 1e9 + 7;
+const ll N = 1e5 + 5;
+
+ll n, m, len, pos[N], a[N], num[N], num2[N], ans[N], b[N];
+
+struct node {
+	ll l, r, id;
+	bool operator &lt; (const node&amp; a) const
+	{
+		if (pos[l] != pos[a.l])
+			return pos[l] &lt; pos[a.l];
+		return r &lt; a.r;
+	}
+}q[N];
+
+void add(ll x, ll&amp; res)
+{
+	num[x]++;
+	res = max(res, num[x] * b[x]);
+}
+
+void del(ll x)
+{
+	num[x]--;
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	len = sqrt(n);
+	for (ll i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a[i];
+		b[i] = a[i];
+		pos[i] = (i + len - 1) / len;
+	}
+	sort(b + 1, b + 1 + n);
+	ll cnt = unique(b + 1, b + 1 + n) - b - 1;//离散化
+	for (ll i = 1; i &lt;= n; i++)
+		a[i] = lower_bound(b + 1, b + 1 + n, a[i]) - b;
+	for (ll i = 1; i &lt;= m; i++)
+	{
+		cin &gt;&gt; q[i].l &gt;&gt; q[i].r;
+		q[i].id = i;
+	}
+	sort(q + 1, q + 1 + m);
+	ll res = 0, l = 1, r = 0, last = 0;
+	for (ll i = 1; i &lt;= m; i++)
+	{
+		//左右区间都在同一个块内,长度较小直接暴力
+		if (pos[q[i].l] == pos[q[i].r])
+		{
+			ll res2 = 0;
+			for (ll j = q[i].l; j &lt;= q[i].r; j++)
+			{
+				num2[a[j]]++;
+				res2 = max(res2, num2[a[j]] * b[a[j]]);
+			}
+			ans[q[i].id] = res2;
+			for (ll j = q[i].l; j &lt;= q[i].r; j++)
+				num2[a[j]]--;
+			continue;
+		}
+		//如果当前询问块号和前一次不同，将左指针移动到当前块最右端+1，右指针移动到当前块右端
+		if (last != pos[q[i].l])
+		{
+			ll R = min(n, pos[q[i].l] * len);
+			while (r &gt; R)
+				del(a[r--]);
+			while (l &lt; R + 1)
+				del(a[l++]);
+			res = 0;
+			last = pos[q[i].l];
+		}
+		while (r &lt; q[i].r)
+			add(a[++r], res);
+		ll templ = l;
+		ll temp_res = res;
+		//答案备份
+		while (templ &gt; q[i].l)
+			add(a[--templ], temp_res);
+		ans[q[i].id] = temp_res;
+		//回滚
+		while (templ &lt; l)
+			del(a[templ++]);
+	}
+	for (ll i = 1; i &lt;= m; i++)
+		cout &lt;&lt; ans[i] &lt;&lt; '\n';
+}
+
+signed main()
+{
+	IOS;
+	ll t = 1;
+	//cin &gt;&gt; t;
+	while (t--)
+		solve();
+	return 0;
+}
+</code></pre>
+<h4 id="树上莫队">树上莫队</h4>
+<pre><code class="language-cpp">int n, m, a[N];
+int tot, fa[N], dep[N], sz[N], hson[N], top[N], rnk[N];
+int li[N * 2], st[N], ed[N];
+int pos[N * 2];
+int ans[N], res, cnt[N], use[N];
+vector&lt;int&gt; g[N];
+vector&lt;int&gt; v;
+struct Query {
+	int l, r, id, lca;
+	bool operator &lt; (Query a)
+	{
+		if (pos[l] != pos[a.l])
+			return pos[l] &lt; pos[a.l];
+		if (pos[l] % 2)
+			return r &lt; a.r;
+		return r &gt; a.r;
+	}
+}q[N];
+
+void dfs1(int x, int father, int d)
+{
+	dep[x] = d;
+	hson[x] = -1;
+	sz[x] = 1;
+	for (auto to : g[x])
+	{
+		if (to == father)
+			continue;
+		fa[to] = x;
+		dfs1(to, x, d + 1);
+		sz[x] += sz[to];
+		if (hson[x] == -1 || sz[to] &gt; sz[hson[x]])
+			hson[x] = to;
+	}
+}
+
+void dfs2(int x, int t)
+{
+	top[x] = t;
+	st[x] = ++tot;
+	li[tot] = x;
+	rnk[tot] = x;
+	if (hson[x] != -1)
+		dfs2(hson[x], t);
+	for (auto to : g[x])
+	{
+		if (to == fa[x] || to == hson[x])
+			continue;
+		dfs2(to, to);
+	}
+	ed[x] = ++tot;
+	li[tot] = x;
+}
+
+int Lca(int x, int y)
+{
+	while (top[x] != top[y])
+	{
+		if (dep[top[x]] &gt; dep[top[y]])
+			x = fa[top[x]];
+		else
+			y = fa[top[y]];
+	}
+	if (dep[x] &gt; dep[y])
+		swap(x, y);
+	return x;
+}
+
+void cal(int x)
+{
+	if (use[x] == 0)
+	{
+		cnt[a[x]]++;
+		if (cnt[a[x]] == 1)
+			res++;
+	}
+	else
+	{
+		cnt[a[x]]--;
+		if (cnt[a[x]] == 0)
+			res--;
+	}
+	use[x] ^= 1;
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i = 1; i &lt;= n; i++)
+		cin &gt;&gt; a[i];
+	for (int i = 1, u, v; i &lt; n; i++)
+	{
+		cin &gt;&gt; u &gt;&gt; v;
+		g[u].push_back(v);
+		g[v].push_back(u);
+	}
+
+	for (int i = 1; i &lt;= n; i++)
+		v.push_back(a[i]);
+	sort(all(v));
+	v.erase(unique(all(v)), v.end());
+	for (int i = 1; i &lt;= n; i++)
+		a[i] = lower_bound(all(v), a[i]) - v.begin();
+
+	dfs1(1, -1, 1);
+	dfs2(1, 1);
+
+	int len = sqrt(n) + 1;
+	for (int i = 1; i &lt;= n * 2; i++)
+		pos[i] = (i - 1) / len + 1;
+	for (int i = 1, x, y; i &lt;= m; i++)
+	{
+		cin &gt;&gt; x &gt;&gt; y;
+		q[i].id = i;
+		if (st[x] &gt; st[y])
+			swap(x, y);
+		q[i].lca = Lca(x, y);
+		if (q[i].lca == x)//x, y在以x为根的子树中
+		{
+			q[i].l = st[x];
+			q[i].r = st[y];
+			q[i].lca = 0;
+		}
+		else
+		{
+			q[i].l = ed[x];
+			q[i].r = st[y];
+		}
+	}
+	sort(q + 1, q + 1 + m);
+
+	for (int i = 1, l = 1, r = 0; i &lt;= m; i++)
+	{
+		while (l &gt; q[i].l)
+			cal(li[--l]);
+		while (r &lt; q[i].r)
+			cal(li[++r]);
+		while (l &lt; q[i].l)
+			cal(li[l++]);
+		while (r &gt; q[i].r)
+			cal(li[r--]);
+		if (q[i].lca)
+			cal(q[i].lca);
+		ans[q[i].id] = res;
+		if (q[i].lca)
+			cal(q[i].lca);
+	}
+
+	for (int i = 1; i &lt;= m; i++)
+		cout &lt;&lt; ans[i] &lt;&lt; '\n';
+}
+</code></pre>
+<h1>树链剖分</h1>
+<h4 id="重链剖分">重链剖分</h4>
+<pre><code class="language-cpp">int tot, fa[N], dep[N], sz[N], hson[N], top[N], dfn[N], rnk[N];
+vector&lt;int&gt; g[N];
+
+void dfs1(int x, int father, int d)
+{
+	dep[x] = d;
+	hson[x] = -1;
+	sz[x] = 1;
+	for (auto to : g[x])
+	{
+		if (to == father)
+			continue;
+		fa[to] = x;
+		dfs1(to, x, d + 1);
+		sz[x] += sz[to];
+		if (hson[x] == -1 || sz[to] &gt; sz[hson[x]])
+			hson[x] = to;
+	}
+}
+
+void dfs2(int x, int t)
+{
+	top[x] = t;//所在重链的最高点t
+	dfn[x] = ++tot;
+	rnk[tot] = x;
+	if (hson[x] == -1)
+		return;
+	dfs2(hson[x], t);
+	for (auto to : g[x])
+	{
+		if (to == fa[x] || to == hson[x])
+			continue;
+		dfs2(to, to);
+	}
+}
+
+int Qmx(int x, int y)
+{
+	int ans = -inf, fx = top[x], fy = top[y];
+	while (fx != fy)
+	{
+		if (dep[fx] &gt; dep[fy])
+		{
+			ans = max(ans, st.query_mx(dfn[fx], dfn[x], 1));
+			x = fa[fx];
+			fx = top[x];
+		}
+		else
+		{
+			ans = max(ans, st.query_mx(dfn[fy], dfn[y], 1));
+			y = fa[fy];
+			fy = top[y];
+		}
+	}
+	if (dfn[x] &lt; dfn[y])
+		swap(x, y);
+	ans = max(ans, st.query_mx(dfn[y], dfn[x], 1));
+	return ans;
+}
+
+void Update(int x, int y, int val)
+{
+	int fx = top[x], fy = top[y];
+	while (fx != fy)
+	{
+		if (dep[fx] &gt; dep[fy])
+		{
+			st.update(dfn[fx], dfn[x], val, 1);
+			x = fa[fx];
+			fx = top[x];
+		}
+		else
+		{
+			st.update(dfn[fy], dfn[y], val, 1);
+			y = fa[fy];
+			fy = top[y];
+		}
+	}
+	if (dfn[x] &gt; dfn[y])
+		swap(x, y);
+	st.update(dfn[x], dfn[y], val, 1);
+}
+</code></pre>
+<h1>CDQ分治</h1>
+<p>离线解决三维偏序问题， 解决和点对有关的问题</p>
+<p>原则 ：前一半更新后一半</p>
+<pre><code class="language-cpp">//https://www.luogu.com.cn/problem/P3157
+#include&lt;bits/stdc++.h&gt;
+#include&lt;unordered_map&gt;
+#define ll long long
+#define ull unsigned long long
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+using namespace std;
+
+const int inf = 0x3f3f3f3f;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+const double eps = 1e-8;
+const ll mod = 998244353;
+const int N = 1e5 + 5;
+
+int n, m, rk[N];
+
+struct node {
+	int val, del;
+	int ans;
+}a[N];
+
+struct BIT {
+	int b[N];
+	int lowbit(int x)
+	{
+		return x &amp; (-x);
+	}
+	void add(int x, int val)
+	{
+		while (x &lt; N)
+		{
+			b[x] += val;
+			x += lowbit(x);
+		}
+	}
+	int getsum(int x)
+	{
+		int ans = 0;
+		while (x)
+		{
+			ans += b[x];
+			x -= lowbit(x);
+		}
+		return ans;
+	}
+	int query(int l, int r)
+	{
+		return getsum(r) - getsum(l - 1);
+	}
+}b;
+
+void cdq(int l, int r)
+{
+	if (l == r)
+		return;
+	int mid = (l + r) / 2;
+	cdq(l, mid);
+	cdq(mid + 1, r);
+	int i = l;
+	int j = mid + 1;
+	while (i &lt;= mid)
+	{
+		while (a[i].val &gt; a[j].val &amp;&amp; j &lt;= r)
+		{
+			b.add(a[j].del, 1);
+			j++;
+		}
+		a[i].ans += b.query(a[i].del + 1, m + 1);
+		i++; 
+	}
+	i = l;
+	j = mid + 1;
+	while (i &lt;= mid)
+	{
+		while (a[i].val &gt; a[j].val &amp;&amp; j &lt;= r)
+		{
+			b.add(a[j].del, -1);
+			j++;
+		}
+		i++;
+	}
+
+	i = mid;
+	j = r;
+	while (j &gt;= mid + 1)
+	{
+		while (a[i].val &gt; a[j].val &amp;&amp; i &gt;= l)
+		{
+			b.add(a[i].del, 1);
+			i--;
+		}
+		a[j].ans += b.query(a[j].del + 1, m + 1);
+		j--;
+	}
+
+	i = mid;
+	j = r;
+	while (j &gt;= mid + 1)
+	{
+		while (a[i].val &gt; a[j].val &amp;&amp; i &gt;= l)
+		{
+			b.add(a[i].del, -1);
+			i--;
+		}
+		j--;
+	}
+	sort(a + l, a + 1 + r, [](node&amp; a, node&amp; b) {
+		return a.val &lt; b.val;
+		});
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i = 1; i &lt;= n; i++)
+		cin &gt;&gt; a[i].val, rk[a[i].val] = i, a[i].del = m + 1;
+	for (int i = 1, x; i &lt;= m; i++)
+	{
+		cin &gt;&gt; x;
+		a[rk[x]].del = i;
+	}
+
+	ll res = 0;
+	for (int i = 1; i &lt;= n; i++)
+	{
+		res += b.query(a[i].val + 1, n);
+		b.add(a[i].val, 1);
+	}
+	for (int i = 1; i &lt;= n; i++)
+		b.add(a[i].val, -1);
+	cdq(1, n);
+	sort(a + 1, a + 1 + n, [](node&amp; a, node&amp; b) {
+		return a.del &lt; b.del;
+		});
+	for (int i = 1; i &lt;= m; i++)
+	{ 
+		cout &lt;&lt; res &lt;&lt; '\n';
+		res -= a[i].ans;
+	}
+}
+
+signed main()
+{
+	IOS;
+	int t = 1;
+	//cin &gt;&gt; t;
+	while (t--)
+		solve();
+	return 0;
+}
+</code></pre>
+<pre><code class="language-cpp">//https://codeforces.com/contest/1045/problem/G
+#include&lt;bits/stdc++.h&gt;
+#include&lt;unordered_map&gt;
+#include&lt;array&gt;
+#define ll long long
+#define ull unsigned long long
+#define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+using namespace std;
+
+const int inf = 0x3f3f3f3f;
+const ll INF = 0x3f3f3f3f3f3f3f3f;
+const double eps = 1e-8;
+const ll mod = 998244353;
+const int N = 1e5 + 5;
+
+int n, k;
+ll ans;
+
+struct node {
+	int x, r, q, L, R;
+}a[N];
+
+struct BIT {
+	int b[N];
+	int lowbit(int x)
+	{
+		return x &amp; (-x);
+	}
+	void add(int x, int val)
+	{
+		while (x &lt; N)
+		{
+			b[x] += val;
+			x += lowbit(x);
+		}
+	}
+	int getsum(int x)
+	{
+		int ans = 0;
+		while (x)
+		{
+			ans += b[x];
+			x -= lowbit(x);
+		}
+		return ans;
+	}
+	int query(int l, int r)
+	{
+		return getsum(r) - getsum(l - 1);
+	}
+}b;
+
+void cdq(int l, int r)
+{
+	if (l == r)
+		return;
+	int mid = (l + r) / 2;
+	cdq(l, mid);
+	cdq(mid + 1, r);
+	int i = mid + 1;
+	int L = l, R = l;
+	while (i &lt;= r)
+	{
+		while (L &lt;= mid &amp;&amp; a[L].q &lt; a[i].q - k)
+			b.add(a[L++].x, -1);
+		while (R &lt;= mid &amp;&amp; a[R].q &lt;= a[i].q + k)
+			b.add(a[R++].x, 1);
+		ans += b.query(a[i].L, a[i].R);
+		i++;
+	}
+	while (L &lt; R)
+		b.add(a[L++].x, -1);
+	sort(a + l, a + r + 1, [](node&amp; a, node&amp; b) {
+		return a.q &lt; b.q;
+		});
+}
+
+int p[N];
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; k;
+	for (int i = 1; i &lt;= n; i++)
+	{
+		cin &gt;&gt; a[i].x &gt;&gt; a[i].r &gt;&gt; a[i].q;
+		a[i].L = max(0, a[i].x - a[i].r);
+		a[i].R = min(inf, a[i].x + a[i].r);
+		p[i] = a[i].x;
+	}
+	sort(p + 1, p + 1 + n);
+	int len = unique(p + 1, p + 1 + n) - p - 1;
+	for (int i = 1; i &lt;= n; i++)
+	{
+		a[i].x = lower_bound(p + 1, p + 1 + len, a[i].x) - p;
+		a[i].L = lower_bound(p + 1, p + 1 + len, a[i].L) - p;
+		a[i].R = upper_bound(p + 1, p + 1 + len, a[i].R) - p - 1;
+	}
+	sort(a + 1, a + 1 + n, [](node&amp; a, node&amp; b) {
+		return a.r &gt; b.r;
+		});
+	cdq(1, n);
+	cout &lt;&lt; ans &lt;&lt; '\n';
+}
+
+signed main()
+{
+	IOS;
+	int t = 1;
+	//cin &gt;&gt; t;
+	while (t--)
+		solve();
+	return 0;
+}
+</code></pre>
+<h1>欧拉序</h1>
+<h4 id="欧拉序1">欧拉序1</h4>
+<p>这一种欧拉序相当于是在dfs的时候，如果某个节点入栈，就把这个节点记录下来，直到后面的操作中这个节点出栈，再记录一次这个节点</p>
+<p><img src="C:%5CUsers%5C%E6%B7%A1%E7%87%83%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1664801910073.png" alt="1664801910073"></p>
+<h4 id="欧拉序2">欧拉序2</h4>
+<p>这一种欧拉序相当于是在dfs的时候，如果储存节点的栈变化一次，就把栈顶的节点编号记录下来,也就是说，每当访问完一个节点的子树，则需要返回一次该节点</p>
+<p><img src="C:%5CUsers%5C%E6%B7%A1%E7%87%83%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1664802032785.png" alt="1664802032785"></p>
+<h1>树上启发式合并</h1>
+<pre><code class="language-cpp">/*
+题意 ：给出一棵 n 个节点以 1 为根的树，节点 u 的颜色为 c[u]
+现在对于每个结点 u 询问 u 子树里一共出现了多少种不同的颜色。
+*/
+int n, a[N], c[N];
+int ans[N];
+vector&lt;int&gt; g[N];
+int hson[N], L[N], R[N], sz[N], tot, rk[N];
+int cnt[N], res;
+
+void dfs(int x, int fa)
+{
+    hson[x] = -1;
+    sz[x] = 1;
+    L[x] = ++tot;
+    rk[tot] = x;
+    for (int &amp;to : g[x])
+    {
+        if (to == fa) continue;
+        dfs(to, x);
+        sz[x] += sz[to];
+        if (hson[x] == -1 || sz[to] &gt; sz[hson[x]]) hson[x] = to;
+    }
+    R[x] = tot;
+}
+
+void add(int x)
+{
+    cnt[c[x]]++;
+    if(cnt[c[x]] == 1) res++;
+}
+
+void del(int x)
+{
+    cnt[c[x]]--;
+    if(cnt[c[x]] == 0) res--;
+}
+
+void dsu(int x, int fa, bool keep)
+{
+    for (int &amp;to : g[x])// 计算轻儿子的答案
+        if (to != fa &amp;&amp; hson[x] != to)
+            dsu(to, x, false);
+    if (hson[x] != -1)// 计算重儿子答案并保留计算过程中的数据（用于继承）
+        dsu(hson[x], x, true);
+
+    for (int &amp;to : g[x])// 把轻儿子(轻子树)的贡献加进去,这样这颗子树的贡献就全在了
+    {
+        if (to != fa &amp;&amp; hson[x] != to)
+        {
+            //for(int i = L[to]; i &lt;= R[to]; i++) cal();
+            for (int i = L[to]; i &lt;= R[to]; i++)
+                add(rk[i]);
+        }
+    }
+
+    add(x);// 将当前点的贡献加进去
+	//cal(x)
+    
+    ans[x] = res; // 计算以 x 为根的答案
+
+    if (!keep)//如果当前子树的是 fa 的轻儿子，则删除当前子树的贡献
+    {
+        for (int i = L[x]; i &lt;= R[x]; i++)
+            del(rk[i]);
+    }
+}
+
+void solve()
+{
+    cin &gt;&gt; n;
+    for (int i = 1, u, v; i &lt; n; i++)
+    {
+        cin &gt;&gt; u &gt;&gt; v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+
+    for(int i = 1; i &lt;= n; i++) cin &gt;&gt; c[i];
+
+    dfs(1, -1);
+    dsu(1, -1, false);
+    
+    int m;
+    cin &gt;&gt; m;
+    while(m--)
+    {
+        int x;
+        cin &gt;&gt; x;
+        cout &lt;&lt; ans[x] &lt;&lt; '\n';
+    }
+}
+</code></pre>
+<h1>点分治</h1>
+<pre><code class="language-cpp">// 题意:给定一棵有 n 个点的树，询问树上距离为 k 的点对是否存在。
+//O（nlognlogn）
+const int inf = 0x3f3f3f3f;
+const int N = 1e4 + 10;
+
+int n, m;
+int dis[N], vis[N], num, root, MX, sz[N], tot;
+vector&lt;pair&lt;int, int&gt;&gt; g[N];
+int q[105], ans[105];
+
+void getroot(int x, int fa)// 找重心
+{
+	sz[x] = 1;  
+	int mx = 0;
+	for (auto &amp;now : g[x])
+	{
+		int to = now.first;
+		if (to == fa || vis[to])
+			continue;
+		getroot(to, x);
+		sz[x] += sz[to];
+		mx = max(mx, sz[to]);
+	}
+	mx = max(mx, num - sz[x]);
+	if (mx &lt; MX)
+	{
+		MX = mx;
+		root = x;
+	}
+}
+
+void getdis(int x, int fa, int d)
+{
+	dis[++tot] = d;
+	for (auto &amp;[to, w] : g[x])
+	{
+		if (vis[to] || to == fa) continue;
+		getdis(to, x, d + w);
+	}
+}
+
+int cal(int x, int k)//O(logn)
+{
+	int res = 0;
+	for (int l = 1; l &lt;= tot; l++)//合并用二分保证复杂度
+		res += upper_bound(dis + 1, dis + 1 + tot, k - dis[l])
+		- lower_bound(dis + 1, dis + 1 + tot, k - dis[l]);
+	return res;
+}
+
+int ok[105];// 记录询问是否已经存在答案了
+void divide(int x)//O(nlogn)，求解以当前所求子树中，经过 x 的路径的答案
+{
+	tot = 0;
+	getdis(x, -1, 0);// 求当前子树中每个点到 x 的距离
+	sort(dis + 1, dis + 1 + tot);
+	
+    for (int i = 1; i &lt;= m; i++) if(!ok[i]) ans[i] += cal(x, q[i]);
+    // 计算经过 x 的路径的条数
+    // 因为是通过 dis 计算出的路径数，可能两个端点都位于 x 的同一个儿子，此时路径是非法的
+
+	vis[x] = 1;
+	for (auto &amp;[to, w] : g[x])
+	{
+		if (vis[to]) continue;
+
+		tot = 0;
+		getdis(to, -1, w);//以 w 为起始距离，保证路径长度相同
+		sort(dis + 1, dis + 1 + tot);
+		for (int i = 1; i &lt;= m; i++) if(!ok[i]) ans[i] -= cal(x, q[i]);
+        // 减去非法路径数，因为此时 dis 的端点都在同一个儿子中
+	}
+
+	for (int i = 1; i &lt;= m; i++) if (ans[i]) ok[i] = 1; // 减去非法路径后，若仍有长度为 k 的路径存在则有答案
+
+	for (auto &amp;[to, w] : g[x]) //子问题
+	{
+		if (vis[to]) continue;
+		num = sz[to];
+		MX = inf;
+		getroot(to, -1);
+		divide(root);
+	}
+}
+
+void solve()
+{
+	cin &gt;&gt; n &gt;&gt; m;
+	for (int i = 1, u, v, w; i &lt; n; i++)
+	{
+		cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;
+		g[u].push_back({ v, w });
+		g[v].push_back({ u, w });
+	}
+	for (int i = 1; i &lt;= m; i++) cin &gt;&gt; q[i];// 离线
+	
+    num = n, MX = inf;
+	getroot(1, -1);
+	divide(root);
+	for (int i = 1; i &lt;= m; i++) cout &lt;&lt; (ans[i] ? &quot;AYE&quot; : &quot;NAY&quot;) &lt;&lt; '\n';
+}
+</code></pre>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define ll long long
+using namespace std;
+
+/*
+离线处理询问，询问 u, v 会在 路径上某个点作为重心时求解，不然将询问丢给子树
+*/
+
+const int N = 5e5 + 10;
+int n, q;
+ll c[N];
+vector&lt;int&gt; g[N];
+vector&lt;array&lt;int, 3&gt;&gt; qry[N];
+
+int vis[N], sz[N], root, bel[N];//bel 记录处于根的那棵子树中//板子部分
+ll f[N][60];
+int dp[N][60];
+int ans[N];
+
+void get_sz(int x, int fa)//板子部分
+{
+    sz[x] = 1;
+    for(auto &amp;to : g[x])
+    {
+        if(to == fa || vis[to]) continue;
+        get_sz(to, x);
+        sz[x] += sz[to];
+    }
+}
+int find(int x, int fa, int s)//找重心//板子部分
+{
+    for(auto &amp;to : g[x])
+    {
+        if(to == fa || vis[to] || 2 * sz[to] &lt;= s) continue;
+        return find(to, x, s);
+    }
+    return x;
+}
+
+void dfs(int x, int fa)// cal，处理答案
+{
+    for(auto &amp;to : g[x])
+    {
+        if(to == fa || vis[to]) continue;
+        bel[to] = (x == root ? to : bel[x]);
+        for(int i = 0; i &lt; 60; i++)
+        {
+            if(dp[x][i] == -1 || !(c[x] &amp; c[to])) dp[to][i] = -1;
+            else if(f[x][i] &amp; c[to])
+            {
+                dp[to][i] = dp[x][i] + 1;
+                f[to][i] = f[x][i] &amp; c[to];
+            }
+            else
+            {
+                dp[to][i] = dp[x][i] + 2;
+                f[to][i] = c[x] &amp; c[to];
+            }
+        }  
+        dfs(to, x);
+    }
+}
+
+void divide(int x)
+{
+    auto Q = move(qry[x]);
+    get_sz(x, -1);//板子部分
+    x = find(x, -1, sz[x]);// x 为重心 //板子部分
+
+    for(int i = 0; i &lt; 60; i++)
+    {
+        if(c[x] &gt;&gt; i &amp; 1)
+        {
+            dp[x][i] = 0;
+            f[x][i] = 1ll &lt;&lt; i;
+        }
+        else
+            dp[x][i] = -1;
+    }
+    
+    root = x;//板子部分
+    bel[x] = x;//板子部分
+    dfs(x, -1);
+
+    for(auto &amp;[u, v, id] : Q)
+    {
+        if(bel[u] == bel[v]) qry[bel[u]].push_back({u, v, id});
+        else
+        {
+            for(int i = 0; i &lt; 60; i++)
+            {
+                if(dp[u][i] != -1 &amp;&amp; dp[v][i] != -1)
+                {
+                    int res = dp[u][i] + dp[v][i];
+                    if(ans[id] == -1 || ans[id] &gt; res) ans[id] = res;
+                }
+            }
+        }
+    }
+
+    vis[x] = 1;//板子部分
+    for(auto &amp;to : g[x]) if(!vis[to]) divide(to);//板子部分
+}
+
+void solve()
+{
+    cin &gt;&gt; n &gt;&gt; q;
+    for(int i = 1; i &lt;= n; i++) cin &gt;&gt; c[i];
+    for(int i = 1; i &lt; n; i++)
+    {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+
+    for(int i = 1; i &lt;= q; i++)
+    {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        qry[1].push_back({u, v, i});
+    }
+
+    for(int i = 1; i &lt;= q; i++) ans[i] = -1;
+
+    divide(1);//板子部分
+
+    for(int i = 1; i &lt;= q; i++) cout &lt;&lt; ans[i] &lt;&lt; '\n';
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);cout.tie(0);
+    solve();
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <!-- <div class="reward-open">赏 -->
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          <!-- </div> -->
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2024/06/04/15/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo15.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo15.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                数论</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2024/06/04/17/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/loader/orange.progress-bar-stripe-loader.svg" data-src="/images/articleCover/photo17.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="/images/articleCover/photo17.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                树形板子</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="vcomments"></div>
+    <script>
+    new Valine({
+                el: '#vcomments',
+                appId: '5uFVcaXuhCKCxD1aoBuPGLUx-gzGzoHsz',
+                appKey: '8YL2qqdhRPCOessUQWx18Z7J',
+                placeholder: "昵称处输入QQ账号可获取自己头像~",
+                avatar:'',//小怪物头像,
+                visitor: true, // 阅读量统计
+                enableQQ: true
+            })
+    </script>
+
+
+
+
+<!-- 来必力City版安装代码 -->
+<!-- <div id="lv-container" data-id="city" data-uid="MTAyMC81OTcwNS8zNjE2Nw==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div> -->
+<!-- City版安装代码已完成 -->
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg" itemprop="image" alt="learner__" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">learner__</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>不积跬步，无以至千里！</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 learner<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <!-- <p style="color: #666666;">&copy 2018</p> -->
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+        <br>
+        <!-- 运行时间 -->
+        <span id="timeDate">载入天数...</span>
+        <span id="times">载入时分秒...</span>
+        <script>
+            var now = new Date();
+            function createtime() {
+                var grt= new Date("03/21/2024 09:10:00");//此处修改建站时间或者网站上线时间
+                now.setTime(now.getTime()+250);
+                days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+                if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+                mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+                seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+                document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+                document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+            }
+            setInterval("createtime()",250);
+        </script>  
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer> 
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/yangjiafu2002/cdn/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">learner__</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/模板/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  模板
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/题目/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  题目
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/tags/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-tag" aria-hidden="true"></i>
+            标签云
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="6809763477"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+
+<!-- 点击出现彩色气球爆炸效果 -->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/clickBom.js"></script>
+
+<!-- 彩色飘带 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+
+<!-- 动态线条，随鼠标动 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/canvas-nest.min.js"></script>
+
+<!-- 樱花飘落 -->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/sakura.js"></script>
+</html>
